@@ -15,6 +15,11 @@ handlers:
     formatter: simple
     filename: ./logger/logData/logs.txt
     encoding: utf-8
+loggers:
+  faker:
+    level: INFO
+    handlers: [console, file]
+    propagate: False
 root:
   level: DEBUG
   handlers: [console, file]

@@ -2,10 +2,12 @@ import tkinter as tk
 from tkinter import ttk
 from database import models as db_models
 from database import utils as db_utils
-from sqlalchemy import and_
 import hashlib
 from typing import Optional
 import sv_ttk
+
+import logging
+from logger import logging_setup
 
 
 class LoggingPage(tk.Tk):
@@ -22,6 +24,9 @@ class LoggingPage(tk.Tk):
         
         # hashlib obj
         self.md5 = hashlib.md5()
+        
+        # logger
+        self.logger = logging.getLogger(__name__)
         
         # set window size
         self.WIN_WIDTH = 400
@@ -67,18 +72,20 @@ class LoggingPage(tk.Tk):
         else:
             self.accountName_entry.state(["invalid"])
             self.accountName_hint_label.config(text="X", foreground="red")
-            self.hint_label.config(text="账户名不存在!", foreground="red")
+            self.hint_label.config(text="Account Not Exist!", foreground="red")
             return
 
         if self.is_password_correct(account_name, password):
             self.password_entry.state(["!invalid"])
             self.password_hint_label.config(text="√", foreground="green")
             self.hint_label.config(text="")
+            
+            self.logger.info(f"Admin '{account_name}' login successfully!")
             self.enter()
         else:
             self.password_entry.state(["invalid"])
             self.password_hint_label.config(text="X", foreground="red")
-            self.hint_label.config(text="账户名密码不正确!", foreground="red")
+            self.hint_label.config(text="Password Incorrect!", foreground="red")
             self.password.set("")
 
     def place_components(self) -> None:

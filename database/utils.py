@@ -181,7 +181,7 @@ def add_data(data: models.Base):
     '''
     models.session.add(data)
     models.session.commit()
-    logger.debug(f'Successfully added data {data}')
+    # logger.debug(f'Successfully added data {data}')
 
 
 def add_multiple_data(data: list[models.Base]):
@@ -470,30 +470,19 @@ def __make_market_data(vegetable_list: list = CRAWLER_VEGETABLES,
             data.extend(s_data)
             sleep(1)
         for item in data:
-            is_exists = models.session.query(models.Market).filter_by(
+            if not item:
+                continue
+            record = models.Market(
                 vegetable_name=item['vegetable_name'],
                 market_name=item['market_name'],
                 region=item['region'],
                 lowest_price=item['lowest_price'],
                 highest_price=item['highest_price'],
                 average_price=item['average_price'],
-                publish_date=item['publish_date']
-                ).first()
-
-            if not is_exists:
-                record = models.Market(
-                    vegetable_name=item['vegetable_name'],
-                    market_name=item['market_name'],
-                    region=item['region'],
-                    lowest_price=item['lowest_price'],
-                    highest_price=item['highest_price'],
-                    average_price=item['average_price'],
-                    publish_date=item['publish_date'],
-                    source_url=item['source_url']
-                    )
-                add_data(record)
-            else:
-                break
+                publish_date=item['publish_date'],
+                source_url=item['source_url']
+                )
+            add_data(record)
             
     logger.info('Market data added successfully.')
 
