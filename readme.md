@@ -1,19 +1,24 @@
 # How to use database
-1. create a virtual environment
+1. Make sure use python 3.10 or use conda to create a new environment
+```bash
+conda create -n py310 python=3.10
+conda activate py310
+```
+2. Create a virtual environment
 ```bash
 python -m venv ./venv
 ```
-2. Install the required packages
+3. Install the required packages
 ```bash
 pip install -r requirements.txt
 ```
-3. Configure the `database-config.txt` in `./database/config/` to connect to the database
-4. Can use the sqlachemy models in `./database/models.py` to operate the database
-5. Simple initialization of the database
+4. Configure the `database-config.txt` in `./database/config/` to connect to the database
+5. Can use the sqlachemy models in `./database/models.py` to operate the database
+6. Simple initialization of the database
 ```bash
 python sample.py
 ```
-6. Use `utils.py` to get the useful functions for the project
+7. Use `utils.py` to get the useful functions for the project
 
 # How to use the logger
 1. Import the logger setup file
