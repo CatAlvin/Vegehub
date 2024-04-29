@@ -1,0 +1,9 @@
+admin_id: 1
+username: admin
+password: admin
+admin_id: 2
+username: chenglan
+password: 53100
+admin_id: 3
+username: neneliu
+password: 200499Dd

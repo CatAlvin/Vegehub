@@ -1,0 +1,6 @@
+username: root
+password: wbh53100
+host: localhost
+port: 3306
+database: vegehub
+charset: utf8mb4
