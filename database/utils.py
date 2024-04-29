@@ -107,7 +107,7 @@ def drop_tables():
 
 def get_session():
     '''get the session for database operations'''
-    return models.session
+    return models.scoped_session(models.Session)
 
 
 def close_session():
@@ -195,7 +195,7 @@ def add_multiple_data(data: list[models.Base]):
     logger.debug(f'Successfully added {len(data)} data.')
     
 
-def __hash_password(password: str, hash_obj):
+def hash_password(password: str, hash_obj):
     '''hash the password
 
     params:
@@ -204,7 +204,6 @@ def __hash_password(password: str, hash_obj):
     hash_obj.update(password.encode('utf-8'))
     return hash_obj.hexdigest()
 
-    
 
 def __load_admin_data_from_file(file_name: str = 'admin.txt'):
     '''load admin data from file
@@ -233,7 +232,7 @@ def __load_admin_data_from_file(file_name: str = 'admin.txt'):
             
             # password hash use md5
             hash_obj = hashlib.md5()
-            password = __hash_password(password, hash_obj)
+            password = hash_password(password, hash_obj)
             d['username'] = username
             d['password'] = password
             

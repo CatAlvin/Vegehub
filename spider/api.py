@@ -9,7 +9,6 @@ from bs4 import BeautifulSoup
 from urllib.parse import quote
 from typing import Union
 from datetime import datetime
-from database import models
 
 # 获取当前文件夹路径
 __CURRENT_FOLDER = os.path.dirname(os.path.abspath(__file__))

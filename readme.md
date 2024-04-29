@@ -1,4 +1,4 @@
-# How to use database
+# Construct python environment
 1. Make sure use python 3.10 or use conda to create a new environment
 ```bash
 conda create -n py310 python=3.10
@@ -12,13 +12,15 @@ python -m venv ./venv
 ```bash
 pip install -r requirements.txt
 ```
-4. Configure the `database-config.txt` in `./database/config/` to connect to the database
-5. Can use the sqlachemy models in `./database/models.py` to operate the database
-6. Simple initialization of the database
+
+# How to use database
+1. Configure the `database-config.txt` in `./database/config/` to connect to the database
+2. Can use the sqlachemy models in `./database/models.py` to operate the database
+3. Simple initialization of the database
 ```bash
 python sample.py
 ```
-7. Use `utils.py` to get the useful functions for the project
+4. Use `utils.py` to get the useful functions for the project
 
 # How to use the logger
 1. Import the logger setup file
