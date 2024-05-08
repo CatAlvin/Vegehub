@@ -53,7 +53,7 @@ def getMarketDataFrame() -> pd.DataFrame:
     """
     return __getDataFrame(models.Market)
 
-def getMarketPricesDataFrame() -> pd.DataFrame:
+def getMarketPriceDataFrame() -> pd.DataFrame:
     """Get the DataFrame of all market prices in the database
 
     Returns:
