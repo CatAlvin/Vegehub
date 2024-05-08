@@ -17,7 +17,6 @@ def setup_logging(default_path= os.path.join(__current_folder, 'config', 'loggin
         log_file_path = config['handlers']['file']['filename']
         os.makedirs(os.path.dirname(log_file_path), exist_ok=True)
         logging.config.dictConfig(config)
-        # 设置编码为utf-8
         
     else:
         print('!!!!!!!!!logging config file not found, using basicConfig!!!!!!!!!!!!')

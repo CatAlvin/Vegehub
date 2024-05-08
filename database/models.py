@@ -134,13 +134,14 @@ class Supplier(Base):
     __tablename__ = "supplier"
     id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
     supplier_name = Column(String(255), nullable=False, comment="供应商名称")
+    region = Column(String(255), comment="供应商所在地区")
     contact_info = Column(String(255), nullable=False, comment="供应商联系信息")
     rating = Column(DECIMAL(3, 1), nullable=False, comment="供应商评分")
     availability = Column(String(255), comment="供货状态")
     source_url = Column(String(255), comment="数据来源的网页链接")
     
     def __str__(self):
-        return f"object : <id:{self.id} supplier_name:{self.supplier_name} contact_info:{self.contact_info} rating:{self.rating} availability:{self.availability}>"
+        return f"object : <id:{self.id} supplier_name:{self.supplier_name} region:{self.region} contact_info:{self.contact_info} rating:{self.rating} availability:{self.availability}>"
 
 # 消费者评价表
 class CustomerReview(Base):

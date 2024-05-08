@@ -12,11 +12,12 @@ from spider import api as spider_api
 from sqlalchemy import and_
 from logger import logging_setup
 from alive_progress import alive_bar, alive_it
+from typing import Optional, Union
 
 # create logger
 logger = logging.getLogger(__name__)
 # create faker
-faker = Faker()
+faker = Faker(locale='zh_CN')
 
 VEGETABLES = [
     '西红柿',
@@ -144,14 +145,16 @@ def fetch_by_condition(model: models.Base, condition):
     return models.session.query(model).filter(condition).all()
 
 
-def fetch_specific_columns(model: models.Base, columns: list[models.Column]):
+def fetch_specific_columns(model: models.Base, column: Union[list[models.Column], models.Column]):
     '''fetch specific columns from a table
 
     params:
         model: the model class
         columns: list of columns to fetch
     '''
-    return models.session.query(*columns).all()
+    if isinstance(column, list):
+        return models.session.query(model).with_entities(*column).all()
+    return [i[0] for i in models.session.query(model).with_entities(column).all()]
 
 
 def fetch_specific_columns_by_condition(model: models.Base, columns: list[models.Column], condition):
@@ -162,6 +165,7 @@ def fetch_specific_columns_by_condition(model: models.Base, columns: list[models
         columns: list of columns to fetch
         condition: the condition to filter
     '''
+    return models.session.query(model).with_entities(*columns).filter(condition).all()
 
 
 def execute_query(query: str):
@@ -296,6 +300,7 @@ def __make_supplier_data(numOfData: int):
         for _ in range(numOfData):
             data.append(models.Supplier(
                 supplier_name=faker.company(),
+                region=faker.province(),
                 contact_info=faker.phone_number(),
                 rating=__discontinues_probability_maker(
                     [1, 2, 3, 4, 5], [0.1, 0.1, 0.2, 0.4, 0.2]),
