@@ -462,11 +462,16 @@ def __make_market_price_data(numOfData: int,
                 p_factor *= breed_dou_price_factor
                 v_factor *= breed_dou_volume_factor
 
+            
+            # make a factor let the price and volume have a little relationship
+            r_volume = random.uniform(10, 100) * v_factor
+            r_price = random.uniform(0.5, 5.0) * p_factor * (1-r_volume / 500)
+
             # add the data
             data.append(models.MarketPrice(
                 vegetable_name=vege_name,
-                price=random.uniform(0.5, 5.0) * p_factor,
-                sale_volume=random.uniform(10, 100) * v_factor,
+                price=r_price,
+                sale_volume=r_volume,
                 season=season,
                 date=date
             ))
