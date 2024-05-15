@@ -3,6 +3,7 @@ import os
 import random
 import hashlib
 import logging
+import json
 
 import database.models as models
 
@@ -265,7 +266,9 @@ def __make_admin_data():
     logger.info('Admin data added successfully.')
 
 
-def __make_customer_data(numOfData: int):
+def __make_customer_data(numOfData: int,
+                         male_rate: float = 0.4,
+                         female_rate: float = 0.6):
     '''make customer data use faker
 
     params:
@@ -279,7 +282,7 @@ def __make_customer_data(numOfData: int):
             data.append(models.Customer(
                 name=faker.name(),
                 age=random.randint(18, 80),
-                gender=random.choice(['male', 'female']),
+                gender=__discontinues_probability_maker(['male','female'], [male_rate, female_rate]),
                 phone=faker.phone_number(),
                 is_vip=__discontinues_probability_maker([True, False], [0.1, 0.9])
             ))
@@ -393,7 +396,21 @@ def __make_customer_review_data(numOfData: int,
 
 
 def __make_market_price_data(numOfData: int,
-                             vegetable_list: list = VEGETABLES):
+                             vegetable_list: list = VEGETABLES,
+                             price_spring_factor: float = 1.2,
+                             price_summer_factor: float = 1.5,
+                             price_autumn_factor: float = 1.0,
+                             price_winter_factor: float = 0.8,
+                             volume_spring_factor: float = 0.8,
+                             volume_summer_factor: float = 1.2,
+                             volume_autumn_factor: float = 1.5,
+                             volume_winter_factor: float = 0.8,
+                             breed_gua_price_factor: float = 1.5,
+                             breed_gua_volume_factor: float = 0.6,
+                             breed_cai_price_factor: float = 1.0,
+                             breed_cai_volume_factor: float = 1.2,
+                             breed_dou_price_factor: float = 1.2,
+                             breed_dou_volume_factor: float = 1.0):
     '''make market price data use faker
 
     params:
@@ -417,39 +434,44 @@ def __make_market_price_data(numOfData: int,
                 season = 'winter'
             # get the season price influence factor
             if season == 'spring':
-                p_factor = 1.2
+                p_factor = price_spring_factor
             elif season == 'summer':
-                p_factor = 1.5
+                p_factor = price_summer_factor
             elif season == 'autumn':
-                p_factor = 1.0
+                p_factor = price_autumn_factor
             else:
-                p_factor = 0.8
+                p_factor = price_winter_factor
             # get the season sale volume influence factor
             if season == 'spring':
-                v_factor = 0.8
+                v_factor = volume_spring_factor
             elif season == 'summer':
-                v_factor = 1.2
+                v_factor = volume_summer_factor
             elif season == 'autumn':
-                v_factor = 1.5
+                v_factor = volume_autumn_factor
             else:
-                v_factor = 0.8
+                v_factor = volume_winter_factor
             # get the vegetable breed influence factor
             vege_name = random.choice(vegetable_list)
             if '菜' in vege_name:
-                p_factor *= 1.0
-                v_factor *= 1.2
+                p_factor *= breed_cai_price_factor
+                v_factor *= breed_cai_volume_factor
             elif '瓜' in vege_name:
-                p_factor *= 1.5
-                v_factor *= 0.6
+                p_factor *= breed_gua_price_factor
+                v_factor *= breed_gua_volume_factor
             elif '豆' in vege_name:
-                p_factor *= 1.2
-                v_factor *= 1.0
+                p_factor *= breed_dou_price_factor
+                v_factor *= breed_dou_volume_factor
+
+            
+            # make a factor let the price and volume have a little relationship
+            r_volume = random.uniform(10, 100) * v_factor
+            r_price = random.uniform(0.5, 5.0) * p_factor * (1-r_volume / 500)
 
             # add the data
             data.append(models.MarketPrice(
                 vegetable_name=vege_name,
-                price=random.uniform(0.5, 5.0) * p_factor,
-                sale_volume=random.uniform(10, 100) * v_factor,
+                price=r_price,
+                sale_volume=r_volume,
                 season=season,
                 date=date
             ))
@@ -492,7 +514,8 @@ def __make_market_data(vegetable_list: list = CRAWLER_VEGETABLES,
     logger.info('Market data added successfully.')
 
 
-def fake_table_data(numOfSupplier: int = 20,
+def fake_table_data(config_from_file: dict = None,
+                    numOfSupplier: int = 20,
                     numOfCustomer: int = 1000,
                     numOfReview: int = 1000,
                     numOfMarketPrice: int = 1000,
@@ -501,48 +524,75 @@ def fake_table_data(numOfSupplier: int = 20,
                     crawler_year=2024,
                     crawler_month=3):
     '''fake table data'''
-    # make admin data
-    __make_admin_data()
-    # make supplier data
-    __make_supplier_data(numOfData=numOfSupplier)
-    # make vegetable data
-    __make_vegetable_data(supplier_num=numOfSupplier,
-                          vegetable_list=VEGETABLES,
-                          pq_items=[10, 50, 100, 200],
-                          pq_probabilities=[0.1, 0.5, 0.3, 0.1],
-                          pp_range=(0.5, 5.0))
-    # make customer data
-    __make_customer_data(numOfData=numOfCustomer)
-    # make customer review data
-    __make_customer_review_data(numOfData=numOfReview,
-                                vegetable_list=VEGETABLES,
-                                review_list=['It was a great shopping experience and allowed me to eat fresh vegetables',
-                                             'The vegetables are fresh. Good reviews',
-                                             'Some dishes are not very fresh',
-                                             'It\'s worse, not as good as expected',
-                                             'The vegetables are not fresh. Not recommended',
-                                             'Great shopping experience, fresh vegetables, good reviews',
-                                             'The vegetables are fresh, good reviews',
-                                             'Some dishes are not very fresh',
-                                             'Very Good!',
-                                             'Recommended!',
-                                             'Wow! Fresh vegetables!',
-                                             'I will buy again!',
-                                             'I will not buy again!',
-                                             'Good experience!',
-                                             'Good quality!',
-                                             'Good service!'])
-    # make market price data
-    __make_market_price_data(numOfData=numOfMarketPrice,
-                             vegetable_list=VEGETABLES)
-    # make market data
-    __make_market_data(begin=crawler_begin,
-                       end=crawler_end,
-                       vegetable_list=CRAWLER_VEGETABLES,
-                       year=crawler_year,
-                       month=crawler_month)
-    logger.info('Fake data generated successfully.')
+    
+    if config_from_file:
+        logger.info('Start to generate fake data based on the config file.')
+        # make admin data
+        __make_admin_data()
+        # make supplier data
+        __make_supplier_data(**config_from_file['Supplier'])
+        # make vegetable data
+        __make_vegetable_data(**config_from_file['Vegetable'])
+        # make customer data
+        __make_customer_data(**config_from_file['Customer'])
+        # make customer review data
+        __make_customer_review_data(**config_from_file['CustomerReview'])
+        # make market price data
+        __make_market_price_data(**config_from_file['MarketPrice'])
+        # make market data
+        __make_market_data(**config_from_file['Market'])
+        logger.info('Fake data generated successfully.')
+    else:
+        logger.info('Start to generate fake data based on the default config.')
+        # make admin data
+        __make_admin_data()
+        # make supplier data
+        __make_supplier_data(numOfData=numOfSupplier)
+        # make vegetable data
+        __make_vegetable_data(supplier_num=numOfSupplier,
+                            vegetable_list=VEGETABLES,
+                            pq_items=[10, 50, 100, 200],
+                            pq_probabilities=[0.1, 0.5, 0.3, 0.1],
+                            pp_range=(0.5, 5.0))
+        # make customer data
+        __make_customer_data(numOfData=numOfCustomer)
+        # make customer review data
+        __make_customer_review_data(numOfData=numOfReview,
+                                    vegetable_list=VEGETABLES,
+                                    review_list=['It was a great shopping experience and allowed me to eat fresh vegetables',
+                                                'The vegetables are fresh. Good reviews',
+                                                'Some dishes are not very fresh',
+                                                'It\'s worse, not as good as expected',
+                                                'The vegetables are not fresh. Not recommended',
+                                                'Great shopping experience, fresh vegetables, good reviews',
+                                                'The vegetables are fresh, good reviews',
+                                                'Some dishes are not very fresh',
+                                                'Very Good!',
+                                                'Recommended!',
+                                                'Wow! Fresh vegetables!',
+                                                'I will buy again!',
+                                                'I will not buy again!',
+                                                'Good experience!',
+                                                'Good quality!',
+                                                'Good service!'])
+        # make market price data
+        __make_market_price_data(numOfData=numOfMarketPrice,
+                                vegetable_list=VEGETABLES)
+        # make market data
+        __make_market_data(begin=crawler_begin,
+                        end=crawler_end,
+                        vegetable_list=CRAWLER_VEGETABLES,
+                        year=crawler_year,
+                        month=crawler_month)
+        logger.info('Fake data generated successfully.')
+        
+def get_fake_config_from_file(file_name: str = 'fake-data-config.json'):
+    '''get fake data config from file'''
 
+    file_path = os.path.join(__CURRENT_FOLDER, 'config', file_name)
+    with open(file_path, 'r') as file:
+        data = json.load(file)
+    return data
 
 def init_database():
     # create_database
@@ -552,8 +602,7 @@ def init_database():
     # create tables
     create_tables()
     # fake table data
-    fake_table_data(crawler_begin=1, 
-                    crawler_end=5, 
-                    crawler_year=2024, 
-                    crawler_month=3)
+    fake_config = get_fake_config_from_file("fake-data-config.json")
+    fake_table_data(config_from_file=fake_config)
+    
     logger.info('Database initialized successfully.')

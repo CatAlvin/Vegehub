@@ -1,0 +1,42 @@
+{
+    "Supplier":{
+        "numOfData": 20
+    },
+    "Vegetable":{
+        "supplier_num": 20,
+        "pq_items": [10, 50, 100, 200],
+        "pq_probabilities": [0.1, 0.5, 0.3, 0.1],
+        "pp_range": [0.5, 5.0]
+    },
+    "Customer":{
+        "numOfData": 1500,
+        "male_rate": 0.4,
+        "female_rate": 0.6
+    },
+    "CustomerReview":{
+        "numOfData": 1000
+    },
+    "MarketPrice":{
+        "numOfData": 1000,
+        "price_spring_factor": 1.2,
+        "price_summer_factor": 1.5,
+        "price_autumn_factor": 1.0,
+        "price_winter_factor": 0.8,
+        "volume_spring_factor": 0.8,
+        "volume_summer_factor": 1.2,
+        "volume_autumn_factor": 1.5,
+        "volume_winter_factor": 0.8,
+        "breed_gua_price_factor": 1.5,
+        "breed_gua_volume_factor": 0.6,
+        "breed_cai_price_factor": 1.0,
+        "breed_cai_volume_factor": 1.2,
+        "breed_dou_price_factor": 1.2,
+        "breed_dou_volume_factor": 1.0
+    },
+    "Market":{
+        "begin": 1,
+        "end": 5,
+        "year": 2024,
+        "month": 2
+    }
+}
