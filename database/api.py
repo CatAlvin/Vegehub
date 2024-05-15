@@ -131,4 +131,7 @@ def getReviewWordFrequency(vegetable_name: str) -> dict[str, int]:
                 wordFrequency[adj] += 1
             else:
                 wordFrequency[adj] = 1
+                
+    # Sort the word frequency dict by value
+    wordFrequency = dict(sorted(wordFrequency.items(), key=lambda item: item[1], reverse=True))
     return wordFrequency
