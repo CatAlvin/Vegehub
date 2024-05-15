@@ -118,7 +118,7 @@ def customer_profile():
            color='blue', legend_label='Male',
            view=CDSView(filter=BooleanFilter(male_filter)))
      # 添加年龄组标签
-    labels = LabelSet(x=0, y='Age_Group', text='Age_Group', level='glyph',text_color='white',
+    labels = LabelSet(x=0, y='Age_Group', text='Age_Group', level='glyph',text_color='red',
                       source=source, text_align='center', text_baseline='middle')
     p.add_layout(labels)
     #p.hbar(y='Age_Group', left='Population', right=0, height=0.4, source=source, 

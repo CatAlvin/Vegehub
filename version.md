@@ -17,3 +17,9 @@
 - 新增了`database.api`模块，用于操作数据库，获取DataFrame
 - 修改了数据库结构
   - 在Supplier表中增加了`region`字段
+  
+# v5.0
+- 新增了`fake-data-config.txt`文件，用于配置生成假数据的参数
+
+# v6.0
+- 更新数据库生成逻辑，让年龄和性别有关联，并且符合正态分布

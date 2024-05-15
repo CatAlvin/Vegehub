@@ -10,8 +10,12 @@
     },
     "Customer":{
         "numOfData": 1500,
-        "male_rate": 0.4,
-        "female_rate": 0.6
+        "min_age": 18,
+        "max_age": 70,
+        "male_rate_before_25": 0.7,
+        "female_rate_before_25": 0.3,
+        "mean_age": 40,
+        "std_dev": 10
     },
     "CustomerReview":{
         "numOfData": 1000
