@@ -32,7 +32,7 @@ __CURRENT_FOLDER = os.path.dirname(os.path.abspath(__file__))
 logger = logging.getLogger(__name__)
 
 
-def __load_database_config(file_name:str = 'database-config.txt'):
+def __load_database_config(file_name: str = 'database-config.txt'):
     '''load database config from file'''
     file_path = os.path.join(__CURRENT_FOLDER, 'config', file_name)
     with open(file_path, 'r') as f:
@@ -42,6 +42,7 @@ def __load_database_config(file_name:str = 'database-config.txt'):
             key, value = line.strip().split(': ')
             config[key] = value
         return config
+
 
 # 基础类
 Base = declarative_base()
@@ -80,13 +81,16 @@ Session = sessionmaker(bind=engine)
 session = scoped_session(Session)
 
 # 管理员账户表
+
+
 class Admin(Base):
     __tablename__ = "admin"
     id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
     username = Column(String(255), nullable=False, comment="用户名")
     password = Column(String(255), nullable=False, comment="密码")
-    create_time = Column(DateTime, nullable=False, default=datetime.datetime.now, comment="创建时间")
-    
+    create_time = Column(DateTime, nullable=False,
+                         default=datetime.datetime.now, comment="创建时间")
+
     def __str__(self):
         return f"object : <id:{self.id} username:{self.username} password:{self.password} create_time:{self.create_time}>"
 
@@ -103,15 +107,17 @@ class Market(Base):
     average_price = Column(DECIMAL(10, 2), nullable=False, comment="平均价格")
     publish_date = Column(Date, nullable=False, comment="发布日期")
     source_url = Column(String(255), comment="数据来源的网页链接")
-    
+
     __table__args__ = (
         UniqueConstraint("vegetable_name", "market_name", "publish_date"),
     )
-    
+
     def __str__(self):
         return f"object : <id:{self.id} vegetable_name:{self.vegetable_name} market_name:{self.market_name} region:{self.region} lowest_price:{self.lowest_price} highest_price:{self.highest_price} average_price:{self.average_price} publish_date:{self.publish_date}>"
 
 # 蔬菜表
+
+
 class Vegetable(Base):
     __tablename__ = "vegetable"
     id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
@@ -121,15 +127,17 @@ class Vegetable(Base):
     supplier_id = Column(Integer, ForeignKey('supplier.id'), comment="供应商ID")
     selling_price = Column(DECIMAL(10, 2), nullable=False, comment="销售价格")
     vip_price = Column(DECIMAL(10, 2), nullable=False, comment="VIP价格")
-    
+
     __table__args__ = (
         UniqueConstraint("vegetable_name", "supplier_id"),
     )
-    
+
     def __str__(self):
         return f"object : <id:{self.id} vegetable_name:{self.vegetable_name} purchase_quantity:{self.purchase_quantity} purchase_price:{self.purchase_price} selling_price:{self.selling_price} vip_price:{self.vip_price}>"
 
 # 供应商表
+
+
 class Supplier(Base):
     __tablename__ = "supplier"
     id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
@@ -139,24 +147,32 @@ class Supplier(Base):
     rating = Column(DECIMAL(3, 1), nullable=False, comment="供应商评分")
     availability = Column(String(255), comment="供货状态")
     source_url = Column(String(255), comment="数据来源的网页链接")
-    
+
     def __str__(self):
         return f"object : <id:{self.id} supplier_name:{self.supplier_name} region:{self.region} contact_info:{self.contact_info} rating:{self.rating} availability:{self.availability}>"
 
 # 消费者评价表
+
+
 class CustomerReview(Base):
     __tablename__ = "customer_review"
     id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
     review_date = Column(Date, nullable=False, comment="评价日期")
     review_text = Column(Text, nullable=False, comment="评价内容")
+
     # 添加外键关联到蔬菜表
     vegetable_id = Column(Integer, ForeignKey('vegetable.id'), comment="蔬菜ID")
+    neg = Column(DECIMAL(6, 4), comment="负面情感")
+    neu = Column(DECIMAL(6, 4), comment="中性情感")
+    pos = Column(DECIMAL(6, 4), comment="正面情感")
+    compound = Column(DECIMAL(6, 4), comment="综合情感")
 
-    
     def __str__(self):
         return f"object : <id:{self.id} review_date:{self.review_date} review_text:{self.review_text}>"
 
 # 市场价格表
+
+
 class MarketPrice(Base):
     __tablename__ = "market_price"
     id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
@@ -165,11 +181,13 @@ class MarketPrice(Base):
     sale_volume = Column(DECIMAL(10, 2), nullable=False, comment="销售量(kg)")
     season = Column(String(255), comment="蔬菜对应的季节")
     date = Column(Date, nullable=False, comment="日期")
-    
+
     def __str__(self):
         return f"object : <id:{self.id} date:{self.date} price:{self.price} season:{self.season}>"
-    
+
 # 顾客表
+
+
 class Customer(Base):
     __tablename__ = "customer"
     id = Column(Integer, primary_key=True, autoincrement=True, comment="主键")
@@ -178,7 +196,7 @@ class Customer(Base):
     gender = Column(Enum('male', 'female'), nullable=False, comment="顾客性别")
     phone = Column(String(255), nullable=False, comment="顾客联系信息")
     is_vip = Column(Boolean, nullable=False, comment="是否是VIP")
-    
+
     __table__args__ = (
         UniqueConstraint("name", "age", "phone"),
     )

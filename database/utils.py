@@ -4,6 +4,7 @@ import random
 import hashlib
 import logging
 import json
+import nltk
 
 import database.models as models
 import numpy as np
@@ -15,11 +16,17 @@ from sqlalchemy import and_
 from logger import logging_setup
 from alive_progress import alive_bar, alive_it
 from typing import Optional, Union
+from nltk.sentiment import SentimentIntensityAnalyzer
 
 # create logger
 logger = logging.getLogger(__name__)
 # create faker
 faker = Faker(locale='zh_CN')
+# create sentiment analyzer
+sia = SentimentIntensityAnalyzer()
+
+# 下载 vader_lexicon 资源
+nltk.download('vader_lexicon')
 
 VEGETABLES = [
     '西红柿',
@@ -384,6 +391,10 @@ def __make_vegetable_data(supplier_num: int = 20,
             bar()
     add_multiple_data(data)
     logger.info('Vegetable data added successfully.')
+    
+def get_text_sentiment(text: str):
+    '''get the sentiment of the text'''
+    return sia.polarity_scores(text)
 
 
 def __make_customer_review_data(numOfData: int,
@@ -415,10 +426,16 @@ def __make_customer_review_data(numOfData: int,
     total_task_num = numOfData
     with alive_bar(total_task_num, title='Adding Customer Review Data') as bar:
         for _ in range(numOfData):
+            review_text = random.choice(review_list)
+            sentiment = get_text_sentiment(review_text)
             data.append(models.CustomerReview(
                 review_date=faker.date_this_year(),
-                review_text=random.choice(review_list),
-                vegetable_id=random.randint(1, len(vegetable_list))
+                review_text=review_text,
+                vegetable_id=random.randint(1, len(vegetable_list)),
+                neg = sentiment['neg'],
+                neu = sentiment['neu'],
+                pos = sentiment['pos'],
+                compound = sentiment['compound']
             ))
             bar()
 

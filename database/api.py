@@ -78,7 +78,7 @@ def getVegetableDataFrame() -> pd.DataFrame:
     return __getDataFrame(models.Vegetable)
     
 
-# 小功能（画图用）
+# 小功能
 def getCustomerAges() -> pd.Series:
     """Get the ages of all customers in the database
 
@@ -113,7 +113,19 @@ def __handleReviewTextToADJList(review_text: str) -> list[str]:
     text = word_tokenize(review_text)
     return [word for word, tag in pos_tag(text) if tag in ['JJ', 'JJR', 'JJS', 'UH', 'WRB']]
 
-def getReviewWordFrequency(vegetable_name: str) -> dict[str, int]:
+def getVegetableNameByID(vegetable_id: int) -> str:
+    """Get the name of a specific vegetable by its ID
+
+    Args:
+        vegetable_id: The ID of the vegetable to get the name of
+
+    Returns:
+        str: The name of the vegetable
+    """
+    vegetable = session.query(models.Vegetable).filter(models.Vegetable.id == vegetable_id).first()
+    return vegetable.vegetable_name
+
+def getReviewWordFrequency(vegetable_id: id) -> dict[str, int]:
     """Get the word frequency of customer reviews for a specific vegetable
 
     Args:
@@ -123,15 +135,38 @@ def getReviewWordFrequency(vegetable_name: str) -> dict[str, int]:
         dict: A dict containing the word frequency of the reviews
     """
     wordFrequency = {}
-    reviews = session.query(models.CustomerReview).join(models.Vegetable).filter(models.Vegetable.vegetable_name == vegetable_name).all()
+    reviews = session.query(models.CustomerReview).filter(models.CustomerReview.vegetable_id == vegetable_id).all()
     for review in reviews:
         adjs = __handleReviewTextToADJList(review.review_text)
         for adj in adjs:
-            if adj in wordFrequency:
-                wordFrequency[adj] += 1
+            adj_capitalized = adj.capitalize()
+            if adj_capitalized in wordFrequency.keys():
+                wordFrequency[adj_capitalized] += 1
             else:
-                wordFrequency[adj] = 1
+                wordFrequency[adj_capitalized] = 1
                 
     # Sort the word frequency dict by value
     wordFrequency = dict(sorted(wordFrequency.items(), key=lambda item: item[1], reverse=True))
     return wordFrequency
+
+def getVegetableReviews(vegetable_id: id) -> list[str]:
+    """Get the reviews of a specific vegetable
+
+    Args:
+        vegetable_name: The name of the vegetable to get the reviews of
+
+    Returns:
+        list: A list containing the reviews of the vegetable
+    """
+    reviews = session.query(models.CustomerReview).filter(models.CustomerReview.vegetable_id == vegetable_id).all()
+    return [
+        {
+            'date': review.review_date,
+            'text': review.review_text,
+            'neg': review.neg,
+            'neu': review.neu,
+            'pos': review.pos,
+            'compound': review.compound
+        }
+        for review in reviews
+    ]
