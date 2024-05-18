@@ -4,8 +4,10 @@ import random
 import hashlib
 import logging
 import json
+import nltk
 
 import database.models as models
+import numpy as np
 
 from time import sleep
 from faker import Faker
@@ -14,11 +16,17 @@ from sqlalchemy import and_
 from logger import logging_setup
 from alive_progress import alive_bar, alive_it
 from typing import Optional, Union
+from nltk.sentiment import SentimentIntensityAnalyzer
 
 # create logger
 logger = logging.getLogger(__name__)
 # create faker
 faker = Faker(locale='zh_CN')
+# create sentiment analyzer
+sia = SentimentIntensityAnalyzer()
+
+# 下载 vader_lexicon 资源
+nltk.download('vader_lexicon')
 
 VEGETABLES = [
     '西红柿',
@@ -198,7 +206,7 @@ def add_multiple_data(data: list[models.Base]):
     models.session.add_all(data)
     models.session.commit()
     logger.debug(f'Successfully added {len(data)} data.')
-    
+
 
 def hash_password(password: str, hash_obj):
     '''hash the password
@@ -234,21 +242,24 @@ def __load_admin_data_from_file(file_name: str = 'admin.txt'):
             d = {}
             username = lines[i + 1].strip().split(': ')[1]
             password = lines[i + 2].strip().split(': ')[1]
-            
+
             # password hash use md5
             hash_obj = hashlib.md5()
             password = hash_password(password, hash_obj)
             d['username'] = username
             d['password'] = password
-            
+
             data.append(d)
-            
+
     return data
 
 # data maker
+
+
 def __discontinues_probability_maker(items: list, probabilities: list):
     '''make a random choice based on the probabilities'''
     return random.choices(items, probabilities)[0]
+
 
 def __make_admin_data():
     '''make admin data'''
@@ -267,24 +278,51 @@ def __make_admin_data():
 
 
 def __make_customer_data(numOfData: int,
-                         male_rate: float = 0.4,
-                         female_rate: float = 0.6):
+                         min_age: int = 18,
+                         max_age: int = 70,
+                         male_rate_before_25: float = 0.7,
+                         female_rate_before_25: float = 0.3,
+                         mean_age: int = 40,
+                         std_dev: int = 10):
     '''make customer data use faker
 
     params:
         numOfData: the number of data to be generated
+        male_rate: the frequency of male customers, default is 0.4
+        female_rate: the frequency of female customers, default is 0.6
+        mean_age: the mean age of customers, default is 40
+        std_dev: the standard deviation of age, default is 10
     '''
     data = []
     total_task_num = numOfData
     with alive_bar(total_task_num, title='Adding Customer Data') as bar:
-        
-        for _ in range(numOfData):
+        ages = np.random.normal(mean_age, std_dev, numOfData)
+        ages = np.clip(ages, min_age, max_age)  # 限制年龄
+
+        # 根据年龄分布生成性别数据
+        genders = []
+        for age in ages:
+            if age < 25:
+                gender = random.choices(['Male', 'Female'], weights=[
+                                        male_rate_before_25, female_rate_before_25])[0]
+            else:
+                # 年龄越大，女性比例越高
+                female_prob = min(0.3 + (age - 25) / 45 * 0.7, 1)
+                male_prob = 1 - female_prob
+                gender = random.choices(['Male', 'Female'], weights=[
+                                        male_prob, female_prob])[0]
+            genders.append(gender)
+
+        for i in range(numOfData):
+            age = int(ages[i])
+            gender = genders[i]
             data.append(models.Customer(
                 name=faker.name(),
-                age=random.randint(18, 80),
-                gender=__discontinues_probability_maker(['male','female'], [male_rate, female_rate]),
+                age=age,
+                gender=gender,
                 phone=faker.phone_number(),
-                is_vip=__discontinues_probability_maker([True, False], [0.1, 0.9])
+                is_vip=__discontinues_probability_maker(
+                    [True, False], [0.1, 0.9])
             ))
             bar()
     add_multiple_data(data)
@@ -353,6 +391,10 @@ def __make_vegetable_data(supplier_num: int = 20,
             bar()
     add_multiple_data(data)
     logger.info('Vegetable data added successfully.')
+    
+def get_text_sentiment(text: str):
+    '''get the sentiment of the text'''
+    return sia.polarity_scores(text)
 
 
 def __make_customer_review_data(numOfData: int,
@@ -384,10 +426,16 @@ def __make_customer_review_data(numOfData: int,
     total_task_num = numOfData
     with alive_bar(total_task_num, title='Adding Customer Review Data') as bar:
         for _ in range(numOfData):
+            review_text = random.choice(review_list)
+            sentiment = get_text_sentiment(review_text)
             data.append(models.CustomerReview(
                 review_date=faker.date_this_year(),
-                review_text=random.choice(review_list),
-                vegetable_id=random.randint(1, len(vegetable_list))
+                review_text=review_text,
+                vegetable_id=random.randint(1, len(vegetable_list)),
+                neg = sentiment['neg'],
+                neu = sentiment['neu'],
+                pos = sentiment['pos'],
+                compound = sentiment['compound']
             ))
             bar()
 
@@ -462,7 +510,6 @@ def __make_market_price_data(numOfData: int,
                 p_factor *= breed_dou_price_factor
                 v_factor *= breed_dou_volume_factor
 
-            
             # make a factor let the price and volume have a little relationship
             r_volume = random.uniform(10, 100) * v_factor
             r_price = random.uniform(0.5, 5.0) * p_factor * (1-r_volume / 500)
@@ -508,9 +555,9 @@ def __make_market_data(vegetable_list: list = CRAWLER_VEGETABLES,
                 average_price=item['average_price'],
                 publish_date=item['publish_date'],
                 source_url=item['source_url']
-                )
+            )
             add_data(record)
-            
+
     logger.info('Market data added successfully.')
 
 
@@ -524,7 +571,7 @@ def fake_table_data(config_from_file: dict = None,
                     crawler_year=2024,
                     crawler_month=3):
     '''fake table data'''
-    
+
     if config_from_file:
         logger.info('Start to generate fake data based on the config file.')
         # make admin data
@@ -550,42 +597,43 @@ def fake_table_data(config_from_file: dict = None,
         __make_supplier_data(numOfData=numOfSupplier)
         # make vegetable data
         __make_vegetable_data(supplier_num=numOfSupplier,
-                            vegetable_list=VEGETABLES,
-                            pq_items=[10, 50, 100, 200],
-                            pq_probabilities=[0.1, 0.5, 0.3, 0.1],
-                            pp_range=(0.5, 5.0))
+                              vegetable_list=VEGETABLES,
+                              pq_items=[10, 50, 100, 200],
+                              pq_probabilities=[0.1, 0.5, 0.3, 0.1],
+                              pp_range=(0.5, 5.0))
         # make customer data
         __make_customer_data(numOfData=numOfCustomer)
         # make customer review data
         __make_customer_review_data(numOfData=numOfReview,
                                     vegetable_list=VEGETABLES,
                                     review_list=['It was a great shopping experience and allowed me to eat fresh vegetables',
-                                                'The vegetables are fresh. Good reviews',
-                                                'Some dishes are not very fresh',
-                                                'It\'s worse, not as good as expected',
-                                                'The vegetables are not fresh. Not recommended',
-                                                'Great shopping experience, fresh vegetables, good reviews',
-                                                'The vegetables are fresh, good reviews',
-                                                'Some dishes are not very fresh',
-                                                'Very Good!',
-                                                'Recommended!',
-                                                'Wow! Fresh vegetables!',
-                                                'I will buy again!',
-                                                'I will not buy again!',
-                                                'Good experience!',
-                                                'Good quality!',
-                                                'Good service!'])
+                                                 'The vegetables are fresh. Good reviews',
+                                                 'Some dishes are not very fresh',
+                                                 'It\'s worse, not as good as expected',
+                                                 'The vegetables are not fresh. Not recommended',
+                                                 'Great shopping experience, fresh vegetables, good reviews',
+                                                 'The vegetables are fresh, good reviews',
+                                                 'Some dishes are not very fresh',
+                                                 'Very Good!',
+                                                 'Recommended!',
+                                                 'Wow! Fresh vegetables!',
+                                                 'I will buy again!',
+                                                 'I will not buy again!',
+                                                 'Good experience!',
+                                                 'Good quality!',
+                                                 'Good service!'])
         # make market price data
         __make_market_price_data(numOfData=numOfMarketPrice,
-                                vegetable_list=VEGETABLES)
+                                 vegetable_list=VEGETABLES)
         # make market data
         __make_market_data(begin=crawler_begin,
-                        end=crawler_end,
-                        vegetable_list=CRAWLER_VEGETABLES,
-                        year=crawler_year,
-                        month=crawler_month)
+                           end=crawler_end,
+                           vegetable_list=CRAWLER_VEGETABLES,
+                           year=crawler_year,
+                           month=crawler_month)
         logger.info('Fake data generated successfully.')
-        
+
+
 def get_fake_config_from_file(file_name: str = 'fake-data-config.json'):
     '''get fake data config from file'''
 
@@ -593,6 +641,7 @@ def get_fake_config_from_file(file_name: str = 'fake-data-config.json'):
     with open(file_path, 'r') as file:
         data = json.load(file)
     return data
+
 
 def init_database():
     # create_database
@@ -604,5 +653,5 @@ def init_database():
     # fake table data
     fake_config = get_fake_config_from_file("fake-data-config.json")
     fake_table_data(config_from_file=fake_config)
-    
+
     logger.info('Database initialized successfully.')

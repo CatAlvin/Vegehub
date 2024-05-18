@@ -39,3 +39,9 @@ logger.info("This is an info message") # in console and logs.txt
 logger.error("This is an error message") # in console and logs.txt
 ```
 4. find the logs in `./logger/logData/logs.txt`
+
+# How to run the backend
+1. Run the backend server
+```bash
+python runBackend.py
+```

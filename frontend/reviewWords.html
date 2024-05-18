@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vegetable Reviews</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        canvas {
+            max-width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Vegetable Reviews</h1>
+    <table id="reviewsTable">
+        <thead>
+            <tr>
+                <th>Adjective</th>
+                <th>Frequency</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+
+    <canvas id="reviewsChart"></canvas>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script>
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        async function fetchReviews(vegetableId) {
+            try {
+                const response = await fetch(`http://localhost:8000/reviews/words/${vegetableId}`);
+                if (!response.ok) {
+                    throw new Error('Network response was not ok ' + response.statusText);
+                }
+                const data = await response.json();
+                populateTable(data);
+                renderChart(data);
+            } catch (error) {
+                console.error('There has been a problem with your fetch operation:', error);
+            }
+        }
+
+        function populateTable(data) {
+            const tableBody = document.querySelector('#reviewsTable tbody');
+            tableBody.innerHTML = '';
+            for (const [adjective, frequency] of Object.entries(data)) {
+                const row = document.createElement('tr');
+                const cellAdjective = document.createElement('td');
+                cellAdjective.textContent = adjective;
+                const cellFrequency = document.createElement('td');
+                cellFrequency.textContent = frequency;
+                row.appendChild(cellAdjective);
+                row.appendChild(cellFrequency);
+                tableBody.appendChild(row);
+            }
+        }
+
+        function renderChart(data) {
+            const ctx = document.getElementById('reviewsChart').getContext('2d');
+            const labels = Object.keys(data);
+            const frequencies = Object.values(data);
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Frequency',
+                        data: frequencies,
+                        backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Adjectives'
+                            }
+                        },
+                        y: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Frequency'
+                            }
+                        }
+                    },
+                    plugins: {
+                        datalabels: {
+                            anchor: 'end',
+                            align: 'top',
+                            formatter: (value) => value,
+                            font: {
+                                weight: 'bold'
+                            }
+                        }
+                    },
+                    animation: {
+                        duration: 1000,
+                        easing: 'easeInOutQuad'
+                    }
+                },
+                plugins: [ChartDataLabels]
+            });
+        }
+
+        const vegetableId = getQueryParam('id');
+        if (vegetableId) {
+            fetchReviews(vegetableId);
+        } else {
+            console.error('Vegetable ID is missing in the URL parameters.');
+        }
+    </script>
+</body>
+</html>
