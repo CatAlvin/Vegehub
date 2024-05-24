@@ -1,0 +1,538 @@
+2024-05-19 01:59:45,274 - database.utils - INFO - Database created successfully.
+2024-05-19 01:59:45,284 - database.utils - INFO - Tables dropped successfully.
+2024-05-19 01:59:45,472 - database.utils - INFO - Tables created successfully.
+2024-05-19 01:59:45,473 - database.utils - INFO - Start to generate fake data based on the config file.
+2024-05-19 01:59:45,532 - database.utils - DEBUG - Successfully added 3 data.
+2024-05-19 01:59:45,532 - database.utils - INFO - Admin data added successfully.
+2024-05-19 01:59:45,549 - database.utils - DEBUG - Successfully added 20 data.
+2024-05-19 01:59:45,549 - database.utils - INFO - Supplier data added successfully.
+2024-05-19 01:59:45,570 - database.utils - DEBUG - Successfully added 36 data.
+2024-05-19 01:59:45,570 - database.utils - INFO - Vegetable data added successfully.
+2024-05-19 01:59:46,046 - database.utils - DEBUG - Successfully added 1500 data.
+2024-05-19 01:59:46,046 - database.utils - INFO - Customer data added successfully.
+2024-05-19 01:59:46,460 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-19 01:59:46,460 - database.utils - INFO - Customer review data added successfully.
+2024-05-19 01:59:46,772 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-19 01:59:46,772 - database.utils - INFO - Market price data added successfully.
+on 0: 2024-05-19 01:59:46,775 - spider.api - INFO - Start to get data for 胡萝卜 in 2024 year 2 month
+on 0: 2024-05-19 01:59:46,780 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 0: 2024-05-19 01:59:47,570 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 10040
+on 0: 2024-05-19 01:59:47,571 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html
+on 0: 2024-05-19 01:59:47,594 - spider.api - DEBUG - Processing '胡萝卜' page 1
+on 1: 2024-05-19 01:59:47,598 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 1: 2024-05-19 01:59:48,382 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9934
+on 1: 2024-05-19 01:59:48,383 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html
+on 1: 2024-05-19 01:59:48,408 - spider.api - DEBUG - Processing '胡萝卜' page 2
+on 2: 2024-05-19 01:59:48,412 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 2: 2024-05-19 01:59:49,090 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9899
+on 2: 2024-05-19 01:59:49,091 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html
+on 2: 2024-05-19 01:59:49,113 - spider.api - DEBUG - Processing '胡萝卜' page 3
+on 3: 2024-05-19 01:59:49,116 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 3: 2024-05-19 01:59:49,887 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9951
+on 3: 2024-05-19 01:59:49,888 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html
+on 3: 2024-05-19 01:59:49,911 - spider.api - DEBUG - Processing '胡萝卜' page 4
+on 4: 2024-05-19 01:59:49,914 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 4: 2024-05-19 01:59:50,734 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9827
+on 4: 2024-05-19 01:59:50,735 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html
+on 4: 2024-05-19 01:59:50,757 - spider.api - DEBUG - Processing '胡萝卜' page 5
+on 5: 2024-05-19 01:59:51,759 - spider.api - INFO - Start to get data for 白菜 in 2024 year 2 month
+on 5: 2024-05-19 01:59:51,761 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 5: 2024-05-19 01:59:52,794 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9538
+on 5: 2024-05-19 01:59:52,795 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html
+on 5: 2024-05-19 01:59:52,894 - spider.api - DEBUG - Processing '白菜' page 1
+on 6: 2024-05-19 01:59:52,897 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 6: 2024-05-19 01:59:53,987 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9599
+on 6: 2024-05-19 01:59:53,988 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html
+on 6: 2024-05-19 01:59:54,009 - spider.api - DEBUG - Processing '白菜' page 2
+on 7: 2024-05-19 01:59:54,012 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 7: 2024-05-19 01:59:55,096 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9586
+on 7: 2024-05-19 01:59:55,097 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html
+on 7: 2024-05-19 01:59:55,119 - spider.api - DEBUG - Processing '白菜' page 3
+on 8: 2024-05-19 01:59:55,122 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 8: 2024-05-19 01:59:56,158 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9438
+on 8: 2024-05-19 01:59:56,159 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html
+on 8: 2024-05-19 01:59:56,180 - spider.api - DEBUG - Processing '白菜' page 4
+on 9: 2024-05-19 01:59:56,183 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 9: 2024-05-19 01:59:57,244 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9609
+on 9: 2024-05-19 01:59:57,245 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html
+on 9: 2024-05-19 01:59:57,267 - spider.api - DEBUG - Processing '白菜' page 5
+on 10: 2024-05-19 01:59:58,270 - spider.api - INFO - Start to get data for 土豆 in 2024 year 2 month
+on 10: 2024-05-19 01:59:58,273 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 10: 2024-05-19 01:59:59,056 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9893
+on 10: 2024-05-19 01:59:59,057 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p1.html
+on 10: 2024-05-19 01:59:59,080 - spider.api - DEBUG - Processing '土豆' page 1
+on 11: 2024-05-19 01:59:59,083 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 11: 2024-05-19 01:59:59,865 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9969
+on 11: 2024-05-19 01:59:59,866 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p2.html
+on 11: 2024-05-19 01:59:59,888 - spider.api - DEBUG - Processing '土豆' page 2
+on 12: 2024-05-19 01:59:59,891 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 12: 2024-05-19 02:00:00,566 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9861
+on 12: 2024-05-19 02:00:00,567 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p3.html
+on 12: 2024-05-19 02:00:00,589 - spider.api - DEBUG - Processing '土豆' page 3
+on 13: 2024-05-19 02:00:00,592 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 13: 2024-05-19 02:00:01,429 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9820
+on 13: 2024-05-19 02:00:01,430 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p4.html
+on 13: 2024-05-19 02:00:01,451 - spider.api - DEBUG - Processing '土豆' page 4
+on 14: 2024-05-19 02:00:01,454 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 14: 2024-05-19 02:00:09,255 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9901
+on 14: 2024-05-19 02:00:09,256 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p5.html
+on 14: 2024-05-19 02:00:09,278 - spider.api - DEBUG - Processing '土豆' page 5
+on 15: 2024-05-19 02:00:10,281 - spider.api - INFO - Start to get data for 西红柿 in 2024 year 2 month
+on 15: 2024-05-19 02:00:10,284 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 15: 2024-05-19 02:00:13,311 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 10084
+on 15: 2024-05-19 02:00:13,312 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p1.html
+on 15: 2024-05-19 02:00:13,333 - spider.api - DEBUG - Processing '西红柿' page 1
+on 16: 2024-05-19 02:00:13,336 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 16: 2024-05-19 02:00:15,800 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 10165
+on 16: 2024-05-19 02:00:15,801 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p2.html
+on 16: 2024-05-19 02:00:15,823 - spider.api - DEBUG - Processing '西红柿' page 2
+on 17: 2024-05-19 02:00:15,826 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 17: 2024-05-19 02:00:17,512 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9984
+on 17: 2024-05-19 02:00:17,513 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p3.html
+on 17: 2024-05-19 02:00:17,534 - spider.api - DEBUG - Processing '西红柿' page 3
+on 18: 2024-05-19 02:00:17,537 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 18: 2024-05-19 02:00:18,302 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9929
+on 18: 2024-05-19 02:00:18,303 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p4.html
+on 18: 2024-05-19 02:00:18,324 - spider.api - DEBUG - Processing '西红柿' page 4
+on 19: 2024-05-19 02:00:18,328 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 19: 2024-05-19 02:00:19,098 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9849
+on 19: 2024-05-19 02:00:19,099 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p5.html
+on 19: 2024-05-19 02:00:19,120 - spider.api - DEBUG - Processing '西红柿' page 5
+on 20: 2024-05-19 02:00:20,122 - spider.api - INFO - Start to get data for 芹菜 in 2024 year 2 month
+on 20: 2024-05-19 02:00:20,124 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 20: 2024-05-19 02:00:20,790 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9889
+on 20: 2024-05-19 02:00:20,791 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p1.html
+on 20: 2024-05-19 02:00:20,813 - spider.api - DEBUG - Processing '芹菜' page 1
+on 21: 2024-05-19 02:00:20,816 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 21: 2024-05-19 02:00:36,680 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9936
+on 21: 2024-05-19 02:00:36,681 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p2.html
+on 21: 2024-05-19 02:00:36,702 - spider.api - DEBUG - Processing '芹菜' page 2
+on 22: 2024-05-19 02:00:36,705 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 22: 2024-05-19 02:00:37,495 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9924
+on 22: 2024-05-19 02:00:37,496 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p3.html
+on 22: 2024-05-19 02:00:37,517 - spider.api - DEBUG - Processing '芹菜' page 3
+on 23: 2024-05-19 02:00:37,520 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 23: 2024-05-19 02:00:38,250 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9899
+on 23: 2024-05-19 02:00:38,251 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p4.html
+on 23: 2024-05-19 02:00:38,272 - spider.api - DEBUG - Processing '芹菜' page 4
+on 24: 2024-05-19 02:00:38,275 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 24: 2024-05-19 02:00:38,988 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9996
+on 24: 2024-05-19 02:00:38,989 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p5.html
+on 24: 2024-05-19 02:00:39,010 - spider.api - DEBUG - Processing '芹菜' page 5
+on 25: 2024-05-19 02:00:40,012 - spider.api - INFO - Start to get data for 黄瓜 in 2024 year 2 month
+on 25: 2024-05-19 02:00:40,014 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 25: 2024-05-19 02:00:41,042 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9817
+on 25: 2024-05-19 02:00:41,043 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p1.html
+on 25: 2024-05-19 02:00:41,167 - spider.api - DEBUG - Processing '黄瓜' page 1
+on 26: 2024-05-19 02:00:41,170 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 26: 2024-05-19 02:00:42,087 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9989
+on 26: 2024-05-19 02:00:42,088 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p2.html
+on 26: 2024-05-19 02:00:42,109 - spider.api - DEBUG - Processing '黄瓜' page 2
+on 27: 2024-05-19 02:00:42,112 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 27: 2024-05-19 02:00:43,098 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10102
+on 27: 2024-05-19 02:00:43,099 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p3.html
+on 27: 2024-05-19 02:00:43,121 - spider.api - DEBUG - Processing '黄瓜' page 3
+on 28: 2024-05-19 02:00:43,124 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 28: 2024-05-19 02:00:43,880 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9776
+on 28: 2024-05-19 02:00:43,881 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p4.html
+on 28: 2024-05-19 02:00:43,903 - spider.api - DEBUG - Processing '黄瓜' page 4
+on 29: 2024-05-19 02:00:43,906 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 29: 2024-05-19 02:00:44,621 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9974
+on 29: 2024-05-19 02:00:44,622 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p5.html
+on 29: 2024-05-19 02:00:44,644 - spider.api - DEBUG - Processing '黄瓜' page 5
+on 30: 2024-05-19 02:00:45,646 - spider.api - INFO - Start to get data for 青椒 in 2024 year 2 month
+on 30: 2024-05-19 02:00:45,649 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 30: 2024-05-19 02:00:46,327 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 10053
+on 30: 2024-05-19 02:00:46,328 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p1.html
+on 30: 2024-05-19 02:00:46,349 - spider.api - DEBUG - Processing '青椒' page 1
+on 31: 2024-05-19 02:00:46,353 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 31: 2024-05-19 02:00:47,083 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9960
+on 31: 2024-05-19 02:00:47,084 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p2.html
+on 31: 2024-05-19 02:00:47,106 - spider.api - DEBUG - Processing '青椒' page 2
+on 32: 2024-05-19 02:00:47,109 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 32: 2024-05-19 02:00:47,849 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9992
+on 32: 2024-05-19 02:00:47,850 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p3.html
+on 32: 2024-05-19 02:00:47,871 - spider.api - DEBUG - Processing '青椒' page 3
+on 33: 2024-05-19 02:00:47,874 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 33: 2024-05-19 02:00:48,671 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 10020
+on 33: 2024-05-19 02:00:48,672 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p4.html
+on 33: 2024-05-19 02:00:48,693 - spider.api - DEBUG - Processing '青椒' page 4
+on 34: 2024-05-19 02:00:48,696 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 34: 2024-05-19 02:00:49,524 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 10004
+on 34: 2024-05-19 02:00:49,525 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p5.html
+on 34: 2024-05-19 02:00:49,546 - spider.api - DEBUG - Processing '青椒' page 5
+on 35: 2024-05-19 02:00:50,549 - spider.api - INFO - Start to get data for 韭菜 in 2024 year 2 month
+on 35: 2024-05-19 02:00:50,551 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 35: 2024-05-19 02:00:51,598 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9931
+on 35: 2024-05-19 02:00:51,599 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html
+on 35: 2024-05-19 02:00:51,620 - spider.api - DEBUG - Processing '韭菜' page 1
+on 36: 2024-05-19 02:00:51,623 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 36: 2024-05-19 02:00:52,598 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9962
+on 36: 2024-05-19 02:00:52,599 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html
+on 36: 2024-05-19 02:00:52,621 - spider.api - DEBUG - Processing '韭菜' page 2
+on 37: 2024-05-19 02:00:52,624 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 37: 2024-05-19 02:00:53,470 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9818
+on 37: 2024-05-19 02:00:53,471 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html
+on 37: 2024-05-19 02:00:53,492 - spider.api - DEBUG - Processing '韭菜' page 3
+on 38: 2024-05-19 02:00:53,495 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 38: 2024-05-19 02:00:54,223 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9780
+on 38: 2024-05-19 02:00:54,224 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html
+on 38: 2024-05-19 02:00:54,245 - spider.api - DEBUG - Processing '韭菜' page 4
+on 39: 2024-05-19 02:00:54,248 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 39: 2024-05-19 02:00:55,040 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9931
+on 39: 2024-05-19 02:00:55,041 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html
+on 39: 2024-05-19 02:00:55,062 - spider.api - DEBUG - Processing '韭菜' page 5
+on 40: 2024-05-19 02:00:56,065 - spider.api - INFO - Start to get data for 大葱 in 2024 year 2 month
+on 40: 2024-05-19 02:00:56,068 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 40: 2024-05-19 02:00:56,763 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 10140
+on 40: 2024-05-19 02:00:56,764 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p1.html
+on 40: 2024-05-19 02:00:56,786 - spider.api - DEBUG - Processing '大葱' page 1
+on 41: 2024-05-19 02:00:56,789 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 41: 2024-05-19 02:00:57,503 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9991
+on 41: 2024-05-19 02:00:57,504 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p2.html
+on 41: 2024-05-19 02:00:57,525 - spider.api - DEBUG - Processing '大葱' page 2
+on 42: 2024-05-19 02:00:57,528 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 42: 2024-05-19 02:00:58,308 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10059
+on 42: 2024-05-19 02:00:58,309 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p3.html
+on 42: 2024-05-19 02:00:58,330 - spider.api - DEBUG - Processing '大葱' page 3
+on 43: 2024-05-19 02:00:58,333 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 43: 2024-05-19 02:00:59,128 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9919
+on 43: 2024-05-19 02:00:59,129 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p4.html
+on 43: 2024-05-19 02:00:59,150 - spider.api - DEBUG - Processing '大葱' page 4
+on 44: 2024-05-19 02:00:59,153 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 44: 2024-05-19 02:01:00,011 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9977
+on 44: 2024-05-19 02:01:00,012 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p5.html
+on 44: 2024-05-19 02:01:00,032 - spider.api - DEBUG - Processing '大葱' page 5
+on 45: 2024-05-19 02:01:01,035 - spider.api - INFO - Start to get data for 白萝卜 in 2024 year 2 month
+on 45: 2024-05-19 02:01:01,038 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 45: 2024-05-19 02:01:01,805 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9968
+on 45: 2024-05-19 02:01:01,806 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html
+on 45: 2024-05-19 02:01:01,928 - spider.api - DEBUG - Processing '白萝卜' page 1
+on 46: 2024-05-19 02:01:01,931 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 46: 2024-05-19 02:01:02,768 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 10004
+on 46: 2024-05-19 02:01:02,769 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html
+on 46: 2024-05-19 02:01:02,790 - spider.api - DEBUG - Processing '白萝卜' page 2
+on 47: 2024-05-19 02:01:02,793 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 47: 2024-05-19 02:01:03,604 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10038
+on 47: 2024-05-19 02:01:03,605 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html
+on 47: 2024-05-19 02:01:03,627 - spider.api - DEBUG - Processing '白萝卜' page 3
+on 48: 2024-05-19 02:01:03,630 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 48: 2024-05-19 02:01:04,445 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 10095
+on 48: 2024-05-19 02:01:04,446 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html
+on 48: 2024-05-19 02:01:04,466 - spider.api - DEBUG - Processing '白萝卜' page 4
+on 49: 2024-05-19 02:01:04,470 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 49: 2024-05-19 02:01:05,187 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9994
+on 49: 2024-05-19 02:01:05,188 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html
+on 49: 2024-05-19 02:01:05,210 - spider.api - DEBUG - Processing '白萝卜' page 5
+on 50: 2024-05-19 02:01:06,213 - spider.api - INFO - Start to get data for 葱头 in 2024 year 2 month
+on 50: 2024-05-19 02:01:06,216 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 50: 2024-05-19 02:01:07,027 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9898
+on 50: 2024-05-19 02:01:07,028 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p1.html
+on 50: 2024-05-19 02:01:07,049 - spider.api - DEBUG - Processing '葱头' page 1
+on 51: 2024-05-19 02:01:07,053 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 51: 2024-05-19 02:01:07,771 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9953
+on 51: 2024-05-19 02:01:07,771 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p2.html
+on 51: 2024-05-19 02:01:07,794 - spider.api - DEBUG - Processing '葱头' page 2
+on 52: 2024-05-19 02:01:07,796 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 52: 2024-05-19 02:01:08,588 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10032
+on 52: 2024-05-19 02:01:08,588 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p3.html
+on 52: 2024-05-19 02:01:08,609 - spider.api - DEBUG - Processing '葱头' page 3
+on 53: 2024-05-19 02:01:08,612 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 53: 2024-05-19 02:01:09,327 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9905
+on 53: 2024-05-19 02:01:09,328 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p4.html
+on 53: 2024-05-19 02:01:09,349 - spider.api - DEBUG - Processing '葱头' page 4
+on 54: 2024-05-19 02:01:09,352 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 54: 2024-05-19 02:01:10,071 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9925
+on 54: 2024-05-19 02:01:10,072 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p5.html
+on 54: 2024-05-19 02:01:10,093 - spider.api - DEBUG - Processing '葱头' page 5
+2024-05-19 02:01:16,801 - database.utils - INFO - Market data added successfully.
+2024-05-19 02:01:16,802 - database.utils - INFO - Fake data generated successfully.
+2024-05-19 02:01:16,803 - database.utils - INFO - Database initialized successfully.
+2024-05-19 02:56:05,461 - database.utils - WARNING - Database already exists.
+2024-05-19 02:59:18,761 - database.utils - WARNING - Database already exists.
+2024-05-23 20:45:48,927 - database.utils - WARNING - Database already exists.
+2024-05-23 20:45:49,090 - database.utils - INFO - Tables dropped successfully.
+2024-05-23 20:45:49,298 - database.utils - INFO - Tables created successfully.
+2024-05-23 20:45:49,299 - database.utils - INFO - Start to generate fake data based on the config file.
+2024-05-23 20:45:49,363 - database.utils - DEBUG - Successfully added 3 data.
+2024-05-23 20:45:49,363 - database.utils - INFO - Admin data added successfully.
+2024-05-23 20:45:49,382 - database.utils - DEBUG - Successfully added 20 data.
+2024-05-23 20:45:49,382 - database.utils - INFO - Supplier data added successfully.
+2024-05-23 20:45:49,406 - database.utils - DEBUG - Successfully added 36 data.
+2024-05-23 20:45:49,406 - database.utils - INFO - Vegetable data added successfully.
+2024-05-23 20:45:50,075 - database.utils - DEBUG - Successfully added 2000 data.
+2024-05-23 20:45:50,075 - database.utils - INFO - Customer data added successfully.
+2024-05-23 20:45:50,488 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-23 20:45:50,488 - database.utils - INFO - Customer review data added successfully.
+2024-05-23 20:45:50,814 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-23 20:45:50,814 - database.utils - INFO - Market price data added successfully.
+on 0: 2024-05-23 20:45:50,817 - spider.api - INFO - Start to get data for 胡萝卜 in 2024 year 2 month
+on 0: 2024-05-23 20:45:50,822 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+2024-05-23 20:46:43,867 - database.utils - WARNING - Database already exists.
+2024-05-23 20:46:44,024 - database.utils - INFO - Tables dropped successfully.
+2024-05-23 20:46:44,231 - database.utils - INFO - Tables created successfully.
+2024-05-23 20:46:44,232 - database.utils - INFO - Start to generate fake data based on the config file.
+2024-05-23 20:46:44,288 - database.utils - DEBUG - Successfully added 3 data.
+2024-05-23 20:46:44,288 - database.utils - INFO - Admin data added successfully.
+2024-05-23 20:46:44,305 - database.utils - DEBUG - Successfully added 20 data.
+2024-05-23 20:46:44,306 - database.utils - INFO - Supplier data added successfully.
+2024-05-23 20:46:44,327 - database.utils - DEBUG - Successfully added 36 data.
+2024-05-23 20:46:44,327 - database.utils - INFO - Vegetable data added successfully.
+2024-05-23 20:46:44,974 - database.utils - DEBUG - Successfully added 2000 data.
+2024-05-23 20:46:44,974 - database.utils - INFO - Customer data added successfully.
+2024-05-23 20:46:45,366 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-23 20:46:45,366 - database.utils - INFO - Customer review data added successfully.
+2024-05-23 20:46:45,682 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-23 20:46:45,682 - database.utils - INFO - Market price data added successfully.
+on 0: 2024-05-23 20:46:45,685 - spider.api - INFO - Start to get data for 胡萝卜 in 2024 year 2 month
+on 0: 2024-05-23 20:46:45,689 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+2024-05-23 20:47:59,080 - database.utils - WARNING - Database already exists.
+2024-05-23 20:47:59,235 - database.utils - INFO - Tables dropped successfully.
+2024-05-23 20:47:59,426 - database.utils - INFO - Tables created successfully.
+2024-05-23 20:47:59,427 - database.utils - INFO - Start to generate fake data based on the config file.
+2024-05-23 20:47:59,483 - database.utils - DEBUG - Successfully added 3 data.
+2024-05-23 20:47:59,483 - database.utils - INFO - Admin data added successfully.
+2024-05-23 20:47:59,499 - database.utils - DEBUG - Successfully added 20 data.
+2024-05-23 20:47:59,499 - database.utils - INFO - Supplier data added successfully.
+2024-05-23 20:47:59,520 - database.utils - DEBUG - Successfully added 36 data.
+2024-05-23 20:47:59,520 - database.utils - INFO - Vegetable data added successfully.
+2024-05-23 20:48:00,156 - database.utils - DEBUG - Successfully added 2000 data.
+2024-05-23 20:48:00,156 - database.utils - INFO - Customer data added successfully.
+2024-05-23 20:48:00,545 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-23 20:48:00,545 - database.utils - INFO - Customer review data added successfully.
+2024-05-23 20:48:00,858 - database.utils - DEBUG - Successfully added 1000 data.
+2024-05-23 20:48:00,858 - database.utils - INFO - Market price data added successfully.
+on 0: 2024-05-23 20:48:00,861 - spider.api - INFO - Start to get data for 胡萝卜 in 2024 year 2 month
+on 0: 2024-05-23 20:48:00,865 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 0: 2024-05-23 20:48:01,688 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9986
+on 0: 2024-05-23 20:48:01,689 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html
+on 0: 2024-05-23 20:48:01,711 - spider.api - DEBUG - Processing '胡萝卜' page 1
+on 1: 2024-05-23 20:48:01,715 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 1: 2024-05-23 20:48:02,525 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9885
+on 1: 2024-05-23 20:48:02,526 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html
+on 1: 2024-05-23 20:48:02,548 - spider.api - DEBUG - Processing '胡萝卜' page 2
+on 2: 2024-05-23 20:48:02,551 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 2: 2024-05-23 20:48:03,361 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10012
+on 2: 2024-05-23 20:48:03,362 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html
+on 2: 2024-05-23 20:48:03,458 - spider.api - DEBUG - Processing '胡萝卜' page 3
+on 3: 2024-05-23 20:48:03,461 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 3: 2024-05-23 20:48:05,327 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9989
+on 3: 2024-05-23 20:48:05,327 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html
+on 3: 2024-05-23 20:48:05,348 - spider.api - DEBUG - Processing '胡萝卜' page 4
+on 4: 2024-05-23 20:48:05,352 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 4: 2024-05-23 20:48:06,420 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9954
+on 4: 2024-05-23 20:48:06,421 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%83%A1%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html
+on 4: 2024-05-23 20:48:06,443 - spider.api - DEBUG - Processing '胡萝卜' page 5
+on 5: 2024-05-23 20:48:07,446 - spider.api - INFO - Start to get data for 白菜 in 2024 year 2 month
+on 5: 2024-05-23 20:48:07,448 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 5: 2024-05-23 20:48:08,586 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9531
+on 5: 2024-05-23 20:48:08,587 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html
+on 5: 2024-05-23 20:48:08,609 - spider.api - DEBUG - Processing '白菜' page 1
+on 6: 2024-05-23 20:48:08,612 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 6: 2024-05-23 20:48:09,700 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9747
+on 6: 2024-05-23 20:48:09,701 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html
+on 6: 2024-05-23 20:48:09,722 - spider.api - DEBUG - Processing '白菜' page 2
+on 7: 2024-05-23 20:48:09,725 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 7: 2024-05-23 20:48:10,735 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9579
+on 7: 2024-05-23 20:48:10,736 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html
+on 7: 2024-05-23 20:48:10,758 - spider.api - DEBUG - Processing '白菜' page 3
+on 8: 2024-05-23 20:48:10,761 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 8: 2024-05-23 20:48:11,774 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9436
+on 8: 2024-05-23 20:48:11,775 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html
+on 8: 2024-05-23 20:48:11,797 - spider.api - DEBUG - Processing '白菜' page 4
+on 9: 2024-05-23 20:48:11,800 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 9: 2024-05-23 20:48:12,862 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9646
+on 9: 2024-05-23 20:48:12,863 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html
+on 9: 2024-05-23 20:48:12,884 - spider.api - DEBUG - Processing '白菜' page 5
+on 10: 2024-05-23 20:48:13,887 - spider.api - INFO - Start to get data for 土豆 in 2024 year 2 month
+on 10: 2024-05-23 20:48:13,890 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 10: 2024-05-23 20:48:15,729 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9810
+on 10: 2024-05-23 20:48:15,730 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p1.html
+on 10: 2024-05-23 20:48:15,752 - spider.api - DEBUG - Processing '土豆' page 1
+on 11: 2024-05-23 20:48:15,756 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 11: 2024-05-23 20:48:16,613 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9915
+on 11: 2024-05-23 20:48:16,614 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p2.html
+on 11: 2024-05-23 20:48:16,635 - spider.api - DEBUG - Processing '土豆' page 2
+on 12: 2024-05-23 20:48:16,638 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 12: 2024-05-23 20:48:17,760 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10024
+on 12: 2024-05-23 20:48:17,761 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p3.html
+on 12: 2024-05-23 20:48:17,783 - spider.api - DEBUG - Processing '土豆' page 3
+on 13: 2024-05-23 20:48:17,786 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 13: 2024-05-23 20:48:18,641 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9844
+on 13: 2024-05-23 20:48:18,642 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p4.html
+on 13: 2024-05-23 20:48:18,663 - spider.api - DEBUG - Processing '土豆' page 4
+on 14: 2024-05-23 20:48:18,666 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 14: 2024-05-23 20:48:19,529 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9955
+on 14: 2024-05-23 20:48:19,530 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%9C%9F%E8%B1%86y2024m2d-1cta-1by-1p5.html
+on 14: 2024-05-23 20:48:19,551 - spider.api - DEBUG - Processing '土豆' page 5
+on 15: 2024-05-23 20:48:20,555 - spider.api - INFO - Start to get data for 西红柿 in 2024 year 2 month
+on 15: 2024-05-23 20:48:20,557 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 15: 2024-05-23 20:48:21,519 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9935
+on 15: 2024-05-23 20:48:21,520 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p1.html
+on 15: 2024-05-23 20:48:21,542 - spider.api - DEBUG - Processing '西红柿' page 1
+on 16: 2024-05-23 20:48:21,546 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 16: 2024-05-23 20:48:22,455 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 10088
+on 16: 2024-05-23 20:48:22,456 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p2.html
+on 16: 2024-05-23 20:48:22,478 - spider.api - DEBUG - Processing '西红柿' page 2
+on 17: 2024-05-23 20:48:22,481 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 17: 2024-05-23 20:48:23,404 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9801
+on 17: 2024-05-23 20:48:23,405 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p3.html
+on 17: 2024-05-23 20:48:23,428 - spider.api - DEBUG - Processing '西红柿' page 3
+on 18: 2024-05-23 20:48:23,431 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 18: 2024-05-23 20:48:24,368 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9996
+on 18: 2024-05-23 20:48:24,369 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p4.html
+on 18: 2024-05-23 20:48:24,390 - spider.api - DEBUG - Processing '西红柿' page 4
+on 19: 2024-05-23 20:48:24,394 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 19: 2024-05-23 20:48:25,282 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9883
+on 19: 2024-05-23 20:48:25,283 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%A5%BF%E7%BA%A2%E6%9F%BFy2024m2d-1cta-1by-1p5.html
+on 19: 2024-05-23 20:48:25,305 - spider.api - DEBUG - Processing '西红柿' page 5
+on 20: 2024-05-23 20:48:26,308 - spider.api - INFO - Start to get data for 芹菜 in 2024 year 2 month
+on 20: 2024-05-23 20:48:26,310 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 20: 2024-05-23 20:48:27,151 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9941
+on 20: 2024-05-23 20:48:27,152 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p1.html
+on 20: 2024-05-23 20:48:27,173 - spider.api - DEBUG - Processing '芹菜' page 1
+on 21: 2024-05-23 20:48:27,176 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 21: 2024-05-23 20:48:27,892 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9977
+on 21: 2024-05-23 20:48:27,893 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p2.html
+on 21: 2024-05-23 20:48:27,916 - spider.api - DEBUG - Processing '芹菜' page 2
+on 22: 2024-05-23 20:48:27,919 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 22: 2024-05-23 20:48:28,749 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9928
+on 22: 2024-05-23 20:48:28,750 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p3.html
+on 22: 2024-05-23 20:48:28,772 - spider.api - DEBUG - Processing '芹菜' page 3
+on 23: 2024-05-23 20:48:28,775 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 23: 2024-05-23 20:48:29,621 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9902
+on 23: 2024-05-23 20:48:29,622 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p4.html
+on 23: 2024-05-23 20:48:29,755 - spider.api - DEBUG - Processing '芹菜' page 4
+on 24: 2024-05-23 20:48:29,758 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 24: 2024-05-23 20:48:30,608 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 10027
+on 24: 2024-05-23 20:48:30,609 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%8A%B9%E8%8F%9Cy2024m2d-1cta-1by-1p5.html
+on 24: 2024-05-23 20:48:30,631 - spider.api - DEBUG - Processing '芹菜' page 5
+on 25: 2024-05-23 20:48:31,634 - spider.api - INFO - Start to get data for 黄瓜 in 2024 year 2 month
+on 25: 2024-05-23 20:48:31,636 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 25: 2024-05-23 20:48:32,672 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9872
+on 25: 2024-05-23 20:48:32,673 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p1.html
+on 25: 2024-05-23 20:48:32,695 - spider.api - DEBUG - Processing '黄瓜' page 1
+on 26: 2024-05-23 20:48:32,698 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 26: 2024-05-23 20:48:33,816 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 10091
+on 26: 2024-05-23 20:48:33,817 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p2.html
+on 26: 2024-05-23 20:48:33,839 - spider.api - DEBUG - Processing '黄瓜' page 2
+on 27: 2024-05-23 20:48:33,842 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 27: 2024-05-23 20:48:34,880 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10056
+on 27: 2024-05-23 20:48:34,881 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p3.html
+on 27: 2024-05-23 20:48:34,902 - spider.api - DEBUG - Processing '黄瓜' page 3
+on 28: 2024-05-23 20:48:34,905 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 28: 2024-05-23 20:48:35,676 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9768
+on 28: 2024-05-23 20:48:35,676 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p4.html
+on 28: 2024-05-23 20:48:35,698 - spider.api - DEBUG - Processing '黄瓜' page 4
+on 29: 2024-05-23 20:48:35,701 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 29: 2024-05-23 20:48:36,517 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9960
+on 29: 2024-05-23 20:48:36,518 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%BB%84%E7%93%9Cy2024m2d-1cta-1by-1p5.html
+on 29: 2024-05-23 20:48:36,539 - spider.api - DEBUG - Processing '黄瓜' page 5
+on 30: 2024-05-23 20:48:37,542 - spider.api - INFO - Start to get data for 青椒 in 2024 year 2 month
+on 30: 2024-05-23 20:48:37,545 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 30: 2024-05-23 20:48:38,406 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 10178
+on 30: 2024-05-23 20:48:38,407 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p1.html
+on 30: 2024-05-23 20:48:38,430 - spider.api - DEBUG - Processing '青椒' page 1
+on 31: 2024-05-23 20:48:38,433 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 31: 2024-05-23 20:48:39,311 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9938
+on 31: 2024-05-23 20:48:39,312 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p2.html
+on 31: 2024-05-23 20:48:39,333 - spider.api - DEBUG - Processing '青椒' page 2
+on 32: 2024-05-23 20:48:39,336 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 32: 2024-05-23 20:48:40,185 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9968
+on 32: 2024-05-23 20:48:40,186 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p3.html
+on 32: 2024-05-23 20:48:40,208 - spider.api - DEBUG - Processing '青椒' page 3
+on 33: 2024-05-23 20:48:40,211 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 33: 2024-05-23 20:48:56,118 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 10091
+on 33: 2024-05-23 20:48:56,119 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p4.html
+on 33: 2024-05-23 20:48:56,139 - spider.api - DEBUG - Processing '青椒' page 4
+on 34: 2024-05-23 20:48:56,142 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 34: 2024-05-23 20:48:56,984 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 10078
+on 34: 2024-05-23 20:48:56,985 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9D%92%E6%A4%92y2024m2d-1cta-1by-1p5.html
+on 34: 2024-05-23 20:48:57,009 - spider.api - DEBUG - Processing '青椒' page 5
+on 35: 2024-05-23 20:48:58,012 - spider.api - INFO - Start to get data for 韭菜 in 2024 year 2 month
+on 35: 2024-05-23 20:48:58,014 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 35: 2024-05-23 20:48:59,461 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9920
+on 35: 2024-05-23 20:48:59,462 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p1.html
+on 35: 2024-05-23 20:48:59,483 - spider.api - DEBUG - Processing '韭菜' page 1
+on 36: 2024-05-23 20:48:59,486 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 36: 2024-05-23 20:49:00,422 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9768
+on 36: 2024-05-23 20:49:00,423 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p2.html
+on 36: 2024-05-23 20:49:00,444 - spider.api - DEBUG - Processing '韭菜' page 2
+on 37: 2024-05-23 20:49:00,446 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 37: 2024-05-23 20:49:01,470 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9864
+on 37: 2024-05-23 20:49:01,471 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p3.html
+on 37: 2024-05-23 20:49:01,493 - spider.api - DEBUG - Processing '韭菜' page 3
+on 38: 2024-05-23 20:49:01,496 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 38: 2024-05-23 20:49:02,396 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 9762
+on 38: 2024-05-23 20:49:02,397 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p4.html
+on 38: 2024-05-23 20:49:02,419 - spider.api - DEBUG - Processing '韭菜' page 4
+on 39: 2024-05-23 20:49:02,422 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 39: 2024-05-23 20:49:03,510 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9911
+on 39: 2024-05-23 20:49:03,511 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E9%9F%AD%E8%8F%9Cy2024m2d-1cta-1by-1p5.html
+on 39: 2024-05-23 20:49:03,533 - spider.api - DEBUG - Processing '韭菜' page 5
+on 40: 2024-05-23 20:49:04,536 - spider.api - INFO - Start to get data for 大葱 in 2024 year 2 month
+on 40: 2024-05-23 20:49:04,538 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 40: 2024-05-23 20:49:05,315 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 10111
+on 40: 2024-05-23 20:49:05,316 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p1.html
+on 40: 2024-05-23 20:49:05,337 - spider.api - DEBUG - Processing '大葱' page 1
+on 41: 2024-05-23 20:49:05,340 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 41: 2024-05-23 20:49:06,164 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9965
+on 41: 2024-05-23 20:49:06,165 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p2.html
+on 41: 2024-05-23 20:49:06,187 - spider.api - DEBUG - Processing '大葱' page 2
+on 42: 2024-05-23 20:49:06,190 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 42: 2024-05-23 20:49:07,049 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 10115
+on 42: 2024-05-23 20:49:07,050 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p3.html
+on 42: 2024-05-23 20:49:07,071 - spider.api - DEBUG - Processing '大葱' page 3
+on 43: 2024-05-23 20:49:07,074 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 43: 2024-05-23 20:49:07,901 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 10001
+on 43: 2024-05-23 20:49:07,902 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p4.html
+on 43: 2024-05-23 20:49:08,022 - spider.api - DEBUG - Processing '大葱' page 4
+on 44: 2024-05-23 20:49:08,025 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 44: 2024-05-23 20:49:08,986 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 10007
+on 44: 2024-05-23 20:49:08,987 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E5%A4%A7%E8%91%B1y2024m2d-1cta-1by-1p5.html
+on 44: 2024-05-23 20:49:09,008 - spider.api - DEBUG - Processing '大葱' page 5
+on 45: 2024-05-23 20:49:10,011 - spider.api - INFO - Start to get data for 白萝卜 in 2024 year 2 month
+on 45: 2024-05-23 20:49:10,013 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 45: 2024-05-23 20:49:10,733 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9935
+on 45: 2024-05-23 20:49:10,734 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p1.html
+on 45: 2024-05-23 20:49:10,756 - spider.api - DEBUG - Processing '白萝卜' page 1
+on 46: 2024-05-23 20:49:10,759 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 46: 2024-05-23 20:49:11,551 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9959
+on 46: 2024-05-23 20:49:11,552 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p2.html
+on 46: 2024-05-23 20:49:11,574 - spider.api - DEBUG - Processing '白萝卜' page 2
+on 47: 2024-05-23 20:49:11,577 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 47: 2024-05-23 20:49:12,337 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9890
+on 47: 2024-05-23 20:49:12,338 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p3.html
+on 47: 2024-05-23 20:49:12,360 - spider.api - DEBUG - Processing '白萝卜' page 3
+on 48: 2024-05-23 20:49:12,364 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 48: 2024-05-23 20:49:13,172 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 10039
+on 48: 2024-05-23 20:49:13,173 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p4.html
+on 48: 2024-05-23 20:49:13,194 - spider.api - DEBUG - Processing '白萝卜' page 4
+on 49: 2024-05-23 20:49:13,198 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 49: 2024-05-23 20:49:14,040 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 10140
+on 49: 2024-05-23 20:49:14,041 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E7%99%BD%E8%90%9D%E5%8D%9Cy2024m2d-1cta-1by-1p5.html
+on 49: 2024-05-23 20:49:14,062 - spider.api - DEBUG - Processing '白萝卜' page 5
+on 50: 2024-05-23 20:49:15,065 - spider.api - INFO - Start to get data for 葱头 in 2024 year 2 month
+on 50: 2024-05-23 20:49:15,068 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 50: 2024-05-23 20:49:15,941 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p1.html HTTP/1.1" 200 9944
+on 50: 2024-05-23 20:49:15,942 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p1.html
+on 50: 2024-05-23 20:49:15,968 - spider.api - DEBUG - Processing '葱头' page 1
+on 51: 2024-05-23 20:49:15,970 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 51: 2024-05-23 20:49:16,839 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p2.html HTTP/1.1" 200 9973
+on 51: 2024-05-23 20:49:16,840 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p2.html
+on 51: 2024-05-23 20:49:16,862 - spider.api - DEBUG - Processing '葱头' page 2
+on 52: 2024-05-23 20:49:16,864 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 52: 2024-05-23 20:49:17,758 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p3.html HTTP/1.1" 200 9989
+on 52: 2024-05-23 20:49:17,759 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p3.html
+on 52: 2024-05-23 20:49:17,781 - spider.api - DEBUG - Processing '葱头' page 3
+on 53: 2024-05-23 20:49:17,784 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 53: 2024-05-23 20:49:18,674 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p4.html HTTP/1.1" 200 10001
+on 53: 2024-05-23 20:49:18,675 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p4.html
+on 53: 2024-05-23 20:49:18,695 - spider.api - DEBUG - Processing '葱头' page 4
+on 54: 2024-05-23 20:49:18,698 - urllib3.connectionpool - DEBUG - Starting new HTTP connection (1): 127.0.0.1:1080
+on 54: 2024-05-23 20:49:19,614 - urllib3.connectionpool - DEBUG - http://127.0.0.1:1080 "GET http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p5.html HTTP/1.1" 200 9846
+on 54: 2024-05-23 20:49:19,615 - spider.api - DEBUG - Successfully get data from http://price.cnveg.com/select/st%E8%91%B1%E5%A4%B4y2024m2d-1cta-1by-1p5.html
+on 54: 2024-05-23 20:49:19,636 - spider.api - DEBUG - Processing '葱头' page 5
+2024-05-23 20:49:26,419 - database.utils - INFO - Market data added successfully.
+2024-05-23 20:49:26,420 - database.utils - INFO - Fake data generated successfully.
+2024-05-23 20:49:26,421 - database.utils - INFO - Database initialized successfully.

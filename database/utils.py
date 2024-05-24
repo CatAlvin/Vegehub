@@ -18,6 +18,9 @@ from alive_progress import alive_bar, alive_it
 from typing import Optional, Union
 from nltk.sentiment import SentimentIntensityAnalyzer
 
+# 下载 vader_lexicon 资源
+nltk.download('vader_lexicon')
+
 # create logger
 logger = logging.getLogger(__name__)
 # create faker
@@ -25,8 +28,6 @@ faker = Faker(locale='zh_CN')
 # create sentiment analyzer
 sia = SentimentIntensityAnalyzer()
 
-# 下载 vader_lexicon 资源
-nltk.download('vader_lexicon')
 
 VEGETABLES = [
     '西红柿',

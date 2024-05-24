@@ -125,3 +125,4 @@ class LoggingPage(tk.Tk):
         self.bind_them()
         self.protocol("WM_DELETE", self.exit)
         self.mainloop()
+
