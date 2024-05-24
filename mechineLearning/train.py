@@ -8,7 +8,7 @@ from sklearn.ensemble import RandomForestRegressor
 from database import api as db_api
 import joblib
 
-def train_model():
+def train_model(vegetable_name):
     # 数据加载
     vegeDF2 = db_api.getMarketPriceDataFrame()
 
