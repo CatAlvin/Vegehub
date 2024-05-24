@@ -4,6 +4,7 @@ import pandas as pd
 import re
 from spider import api as spider_api
 from nltk import pos_tag, word_tokenize
+import numpy as np
 
 session = utils.get_session()
 
@@ -170,3 +171,62 @@ def getVegetableReviews(vegetable_id: id) -> list[str]:
         }
         for review in reviews
     ]
+    
+def getAverageReviewsSentimentPercentage(vegetable_id: int) -> dict[str, float]:
+    """Get the average sentiment percentage of reviews for a specific vegetable
+
+    Args:
+        vegetable_id: The ID of the vegetable to get the reviews of
+
+    Returns:
+        dict: A dict containing the average sentiment percentage of the reviews
+    """
+    reviews = session.query(models.CustomerReview).filter(models.CustomerReview.vegetable_id == vegetable_id).all()
+    neg = np.mean([review.neg for review in reviews])
+    pos = np.mean([review.pos for review in reviews])
+    neu = np.mean([review.neu for review in reviews])
+    
+    su = neg + pos + neu
+    neg = round(neg / su, 6)
+    pos = round(pos / su, 6)
+    neu = round(neu / su, 6)
+    
+    return {
+        'neg': neg,
+        'pos': pos,
+        'neu': neu
+    }
+    
+def getReviewsSentimentCount(vegetable_id: int) -> dict[str, int]:
+    """Get the count of each sentiment of reviews for a specific vegetable
+
+    Args:
+        vegetable_id: The ID of the vegetable to get the reviews of
+
+    Returns:
+        dict: A dict containing the count of each sentiment of the reviews
+    """
+    reviews = session.query(models.CustomerReview).filter(models.CustomerReview.vegetable_id == vegetable_id).all()
+    neg = len([review for review in reviews if review.compound < 0])
+    pos = len([review for review in reviews if review.compound > 0])
+    neu = len([review for review in reviews if review.compound == 0])
+    
+    return {
+        'neg': round(neg, 6),
+        'pos': round(pos, 6),
+        'neu': round(neu, 6)
+    }
+    
+def getReviewsSentimentCountPercentage(vegetable_id: int) -> dict[str, float]:
+    """Get the count percentage of each sentiment of reviews for a specific vegetable
+
+    Args:
+        vegetable_id: The ID of the vegetable to get the reviews of
+
+    Returns:
+        dict: A dict containing the count percentage of each sentiment of the reviews
+    """
+    pre_data = getReviewsSentimentCount(vegetable_id)
+    su = sum(pre_data.values())
+    return {key: value / su for key, value in pre_data.items()}
+    

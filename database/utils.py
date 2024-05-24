@@ -28,6 +28,9 @@ sia = SentimentIntensityAnalyzer()
 # 下载 vader_lexicon 资源
 nltk.download('vader_lexicon')
 
+random.seed(0)
+Faker.seed(0)
+
 VEGETABLES = [
     '西红柿',
     '黄瓜',

@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegetable Reviews</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        color: #333;
+        overflow: hidden;
+      }
+      h1 {
+        margin-top: 0px;
+        margin-bottom: 20px;
+      }
+      canvas {
+        flex: 1;
+      }
+      header {
+        background-color: #ff5f00;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+      }
+
+      header span {
+        height: 40px;
+        font-size: 30px;
+        color: white;
+      }
+
+      header .admin-icon {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 25px;
+      }
+
+      .sidebar {
+        background-color: #002379;
+        color: white;
+        width: 200px;
+        padding-top: 60px; /* To push the sidebar content below the header */
+        position: fixed;
+        top: -0;
+        left: 0;
+        height: 100%;
+        box-sizing: border-box;
+        z-index: 999;
+      }
+
+      .sidebar a {
+        display: block;
+        color: white;
+        padding: 15px 20px;
+        text-decoration: none;
+      }
+
+      .sidebar a:hover {
+        background-color: #1890fa;
+        transition: background-color 0.3s;
+      }
+
+      .main-area {
+        margin-left: 200px;
+        margin-top: 60px; /* To push the main content below the header */
+        padding: 20px;
+        background-color: #f4f4f4;
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+      }
+      th {
+        background-color: #f4f4f4;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      canvas {
+        max-width: 100%;
+      }
+      .active-sidebar {
+        background-color: #1145a0;
+      }
+      .pies-container {
+        width: 50%;
+        display: flex;
+      }
+      .pies-container canvas {
+        width: 100px;
+      }
+      #sentimentTable {
+        margin-bottom: 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span>🥬Vegehub Admin</span>
+      <div class="admin-icon">🧑‍💻</div>
+    </header>
+    <div class="sidebar">
+      <a href="#" class="active-sidebar">🖊 蔬菜评价</a>
+      <a href="#">＋ 新增管理员</a>
+    </div>
+    <div class="main-area">
+      <h1 id="vegetable-name">加载中...</h1>
+      <canvas id="reviewsChart"></canvas>
+      <h3>形容词频统计</h3>
+      <table id="reviewsTable">
+        <thead>
+          <tr>
+            <th>Adjective</th>
+            <th>Frequency</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+      <h3>评论情感分析</h3>
+      <div class="pies-container">
+        <canvas id="sentimentPieChart"></canvas>
+        <canvas id="sentimentPercentagePieChart"></canvas>
+      </div>
+      <h3>评论类型分类</h3>
+      <table id="sentimentTable">
+        <thead>
+          <tr>
+            <th>情感</th>
+            <th>数量</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>好评</td>
+            <td id="positiveCount">加载中...</td>
+          </tr>
+          <tr>
+            <td>差评</td>
+            <td id="negativeCount">加载中...</td>
+          </tr>
+          <tr>
+            <td>中性</td>
+            <td id="neutralCount">加载中...</td>
+          </tr>
+        </tbody>
+      </table>
+
+
+      <hr />
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
+    <script>
+      function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+      }
+
+      async function fetchReviews(vegetableId) {
+        try {
+          const response = await fetch(
+            `http://localhost:8000/reviews/analyze/${vegetableId}`
+          );
+          if (!response.ok) {
+            throw new Error(
+              "Network response was not ok " + response.statusText
+            );
+          }
+          const data = await response.json();
+          console.log(data);
+          const vegetableName = document.querySelector("#vegetable-name");
+          vegetableName.textContent = data.vegetable_name;
+          populateTable(data.word_frequency, data.sentiment_count);
+          renderChart(data.word_frequency);
+          renderPieCharts(
+            data.sentiment_percentage,
+            data.sentiment_count_percentage
+          );
+        } catch (error) {
+          console.error(
+            "There has been a problem with your fetch operation:",
+            error
+          );
+        }
+      }
+
+      function populateTable(data, sentimentCounts) {
+        const tableBody = document.querySelector("#reviewsTable tbody");
+        tableBody.innerHTML = "";
+        for (const [adjective, frequency] of Object.entries(data)) {
+          const row = document.createElement("tr");
+          const cellAdjective = document.createElement("td");
+          cellAdjective.textContent = adjective;
+          const cellFrequency = document.createElement("td");
+          cellFrequency.textContent = frequency;
+          row.appendChild(cellAdjective);
+          row.appendChild(cellFrequency);
+          tableBody.appendChild(row);
+        }
+        document.getElementById("positiveCount").textContent =
+          sentimentCounts.pos;
+        document.getElementById("negativeCount").textContent =
+          sentimentCounts.neg;
+        document.getElementById("neutralCount").textContent =
+          sentimentCounts.neu;
+      }
+
+      function renderChart(data) {
+        const ctx = document.getElementById("reviewsChart").getContext("2d");
+        const labels = Object.keys(data);
+        const frequencies = Object.values(data);
+        new Chart(ctx, {
+          type: "bar",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                label: "Frequency",
+                data: frequencies,
+                backgroundColor: "rgba(75, 192, 192, 0.2)",
+                borderColor: "rgba(75, 192, 192, 1)",
+                borderWidth: 1,
+              },
+            ],
+          },
+          options: {
+            scales: {
+              x: {
+                title: {
+                  display: true,
+                  text: "Adjectives",
+                },
+              },
+              y: {
+                beginAtZero: true,
+                title: {
+                  display: true,
+                  text: "Frequency",
+                },
+              },
+            },
+            plugins: {
+              datalabels: {
+                anchor: "end",
+                align: "top",
+                formatter: (value) => value,
+                font: {
+                  weight: "bold",
+                },
+              },
+            },
+            animation: {
+              duration: 1000,
+              easing: "easeInOutQuad",
+            },
+          },
+          plugins: [ChartDataLabels],
+        });
+      }
+
+      function renderPieCharts(sentimentPercentage, sentimentCountPercentage) {
+        // 饼状图 - 情感分布
+        const ctxPie = document
+          .getElementById("sentimentPieChart")
+          .getContext("2d");
+        const labelsPie = ["好评", "差评", "中性"];
+        const dataPie = Object.values(sentimentPercentage);
+        const backgroundColorsPie = ["#36e2eb", "#ff6384", "#ffce56"];
+        renderPieChart(ctxPie, labelsPie, dataPie, backgroundColorsPie);
+
+        // 饼状图 - 情感百分比
+        const ctxPercentagePie = document
+          .getElementById("sentimentPercentagePieChart")
+          .getContext("2d");
+        const labelsPercentagePie = ["POS", "NEG", "NEU"];
+        const dataPercentagePie = Object.values(sentimentCountPercentage);
+        // 颜色值（换一种颜色）
+        const backgroundColorsPercentagePie = ["#ff6384", "#e6a2eb", "#2fce56"];
+        renderPieChart(
+          ctxPercentagePie,
+          labelsPercentagePie,
+          dataPercentagePie,
+          backgroundColorsPercentagePie
+        );
+      }
+
+      function renderPieChart(ctx, labels, data, backgroundColors, titleText) {
+        new Chart(ctx, {
+          type: "pie",
+          data: {
+            labels: labels,
+            datasets: [
+              {
+                data: data,
+                backgroundColor: backgroundColors,
+                hoverOffset: 4,
+              },
+            ],
+          },
+          options: {
+            plugins: {
+              title: {
+                display: true,
+                text: titleText,
+              },
+              tooltip: {
+                callbacks: {
+                  label: function (context) {
+                    const label = context.label || "";
+                    const value = context.raw || 0;
+                    const total = context.dataset.data.reduce(
+                      (a, b) => a + b,
+                      0
+                    );
+                    const percentage =
+                      total > 0 ? ((value / total) * 100).toFixed(2) : 0;
+                    return `${label}: ${percentage}% (${value})`;
+                  },
+                },
+              },
+              datalabels: {
+                formatter: (value, context) => {
+                  const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                  const percentage =
+                    total > 0 ? ((value / total) * 100).toFixed(2) : 0;
+                  return `${percentage}%`;
+                },
+                color: "#fff",
+                font: {
+                  weight: "bold",
+                },
+              },
+            },
+            animation: {
+              duration: 1000,
+              easing: "easeInOutQuad",
+            },
+          },
+          plugins: [ChartDataLabels],
+          responsive: true,
+          maintainAspectRatio: false, // 设置为false可以禁用宽高比
+        });
+      }
+
+      const vegetableId = getQueryParam("id");
+      if (vegetableId) {
+        fetchReviews(vegetableId);
+      } else {
+        console.error("Vegetable ID is missing in the URL parameters.");
+      }
+    </script>
+  </body>
+</html>
