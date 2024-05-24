@@ -18,10 +18,10 @@
         "std_dev": 10
     },
     "CustomerReview":{
-        "numOfData": 1000
+        "numOfData": 2000
     },
     "MarketPrice":{
-        "numOfData": 1000,
+        "numOfData": 2000,
         "price_spring_factor": 1.2,
         "price_summer_factor": 1.5,
         "price_autumn_factor": 1.0,

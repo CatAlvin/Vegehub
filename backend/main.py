@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Union
 # 导入getReviewWordFrequency函数
-from database import api as db_api
 from fastapi.middleware.cors import CORSMiddleware
+
+from backend import api
 
 
 app = FastAPI()
@@ -23,30 +24,30 @@ app.add_middleware(
 )
 
 @app.get("/reviews/sentence/{vege_id}",
-         response_model=List[Dict[str, Any]],
+         response_model=Dict[str, List[str]],
          description="Get the reviews of a vegetable",
          response_description="List of reviews",
          tags=["Reviews"]
          )
-async def get_reviews(vege_id: int):
+async def get_review_sentence(vege_id: int):
     try:
-        reviews_data = db_api.getVegetableReviews(vege_id)
-        return reviews_data
+        data = api.get_review_sentence(vege_id)
+        return data
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail=str(e))
 
 
-@app.get("/reviews/words/{vege_id}",
-         response_model=Dict[str, int],
+@app.get("/reviews/analyze/{vege_id}",
+         response_model=Dict[str, Union[str, Dict[str, float]]],
          description="Get the word frequency of the reviews of a vegetable",
          response_description="Word frequency of reviews",
          tags=["Reviews"]
          )
 async def get_review_words(vege_id: int):
     try:
-        word_freq = db_api.getReviewWordFrequency(vege_id)
-        return word_freq
+        data = api.get_review_analyze(vege_id)
+        return data
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail=str(e))

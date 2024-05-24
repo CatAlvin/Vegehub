@@ -1,7 +1,7 @@
 # Construct python environment
 1. Make sure use python 3.10 or use conda to create a new environment
 ```bash
-conda create -n py310 python=3.10
+conda create -n py310 python=3.10.12
 conda activate py310
 ```
 2. Create a virtual environment

@@ -29,6 +29,9 @@ faker = Faker(locale='zh_CN')
 sia = SentimentIntensityAnalyzer()
 
 
+random.seed(0)
+Faker.seed(0)
+
 VEGETABLES = [
     '西红柿',
     '黄瓜',
