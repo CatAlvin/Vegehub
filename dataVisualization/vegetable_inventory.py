@@ -27,7 +27,7 @@ def fetch_data():
     conn.close()
     return result
 
-def draw_vegetable_inventory_chart(filepath='./imgs/vegetable_inventory.png'):
+def draw_vegetable_inventory_chart(filepath='./frontend/imgs/vegetable_inventory.png'):
     data = fetch_data()
     df = pd.DataFrame(data)
     vegetable = df[0]

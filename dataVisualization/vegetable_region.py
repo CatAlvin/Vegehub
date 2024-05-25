@@ -74,7 +74,7 @@ province_full_names = {
     '台湾': '台湾省'
 }
 
-def draw_vegetable_region_chart(vege_name, filepath=None):
+def draw_vegetable_region_chart(vege_name, filepath='./frontend/imgs/vegetable_region.png'):
     # 数据处理删除不是省份的数据并恢复全称
     def filter_provinces(region_list):
         return [province_full_names[region] for region in region_list if region in province_full_names]
@@ -142,3 +142,4 @@ def draw_vegetable_region_chart(vege_name, filepath=None):
             print(f"Map saved to {filepath}")
         else:
             map_chart.render_notebook()
+    return filepath

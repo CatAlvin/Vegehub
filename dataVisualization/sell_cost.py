@@ -32,7 +32,7 @@ def fetch_data(vegetable_name):
     return result
 
 
-def draw_sell_cost_chart(vege_name, file_path="./imgs/sell_cost_chart.png"):
+def draw_sell_cost_chart(vege_name, filepath="./frontend/imgs/sell_cost_chart.png"):
     # 获取合并后的数据
     data = fetch_data(vege_name)
     if not data:
@@ -85,9 +85,9 @@ def draw_sell_cost_chart(vege_name, file_path="./imgs/sell_cost_chart.png"):
         # 展示图表
         plt.tight_layout()
         
-        if file_path:
-            plt.savefig(file_path, bbox_inches='tight')
+        if filepath:
+            plt.savefig(filepath, bbox_inches='tight')
             plt.close()
         else:
             plt.show()
-    return file_path
+    return filepath

@@ -43,7 +43,7 @@ def data_prepocess():
 
     return male_age_group_counts, female_age_group_counts, group_names
 
-def create_butterfly_chart(male_counts, female_counts, labels, file_path=None):
+def create_butterfly_chart(male_counts, female_counts, labels, filepath=None):
     fig, ax = plt.subplots(figsize=(10, 6))
     bars_male = ax.barh(labels, -male_counts, color='lightblue', edgecolor='black', label='Male')
     bars_female = ax.barh(labels, female_counts, color='lightpink', edgecolor='black', label='Female')
@@ -76,13 +76,13 @@ def create_butterfly_chart(male_counts, female_counts, labels, file_path=None):
             bbox=dict(facecolor='none', edgecolor='none')
         )
     
-    if file_path:
-        plt.savefig(file_path, bbox_inches='tight')
+    if filepath:
+        plt.savefig(filepath, bbox_inches='tight')
         plt.close()
     else:
         plt.show()
 
-def draw_customer_gender_age_butterfly_chart(filepath='./imgs/customer_gender_age_butterfly_chart.png'):
+def draw_customer_gender_age_butterfly_chart(filepath='./frontend/imgs/customer_gender_age_butterfly_chart.png'):
     male_counts, female_counts, group_names = data_prepocess()
     create_butterfly_chart(male_counts, female_counts, group_names, filepath=filepath)
     return filepath

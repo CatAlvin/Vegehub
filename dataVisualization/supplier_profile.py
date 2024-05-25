@@ -30,7 +30,7 @@ def fetch_data():
     else:
         return []
 
-def draw_supplier_profile_chart(filepath='./imgs/supplier_profile.png'):
+def draw_supplier_profile_chart(filepath='./frontend/imgs/supplier_profile.png'):
     # 获取数据
     data = fetch_data()
     df = pd.DataFrame(data, columns=['market_name'])

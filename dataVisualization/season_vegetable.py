@@ -29,7 +29,7 @@ def fetch_data(vegetable_name):
     else:
         return []
 
-def draw_vegetable_season_chart(vege_name, filepath='./imgs/vegetable_season_chart.png'):
+def draw_vegetable_season_chart(vege_name, filepath='./frontend/imgs/vegetable_season_chart.png'):
     # 获取数据
     data = fetch_data(vege_name)
     if not data:

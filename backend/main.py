@@ -51,3 +51,17 @@ async def get_review_words(vege_id: int):
     except Exception as e:
         print(e)
         raise HTTPException(status_code=500, detail=str(e))
+    
+@app.get("/visualization/{img_name}/{vege_id}",
+            response_model=Dict[str, Union[str, None]],
+            description="Get the path of the visualization image",
+            response_description="Path of the visualization image",
+            tags=["Visualization"]
+            )
+async def get_visualization_img_path(img_name: str, vege_id: int):
+    try:
+        data = api.get_visualization_img_path(img_name, vege_id)
+        return data
+    except Exception as e:
+        print(e)
+        raise HTTPException(status_code=500, detail=str(e))

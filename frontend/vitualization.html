@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vegetable Visualization</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        display: flex;
+        color: #333;
+        overflow: hidden;
+      }
+      h1 {
+        margin-top: 0px;
+        margin-bottom: 20px;
+      }
+      header {
+        background-color: #ff5f00;
+        color: white;
+        padding: 10px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 1000;
+      }
+      header span {
+        height: 40px;
+        font-size: 30px;
+        color: white;
+      }
+      header .admin-icon {
+        width: 40px;
+        height: 40px;
+        background-color: white;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 25px;
+      }
+      .sidebar {
+        background-color: #002379;
+        color: white;
+        width: 200px;
+        padding-top: 60px; /* To push the sidebar content below the header */
+        position: fixed;
+        top: -0;
+        left: 0;
+        height: 100%;
+        box-sizing: border-box;
+        z-index: 999;
+      }
+      .sidebar a {
+        display: block;
+        color: white;
+        padding: 15px 20px;
+        text-decoration: none;
+      }
+      .sidebar a:hover {
+        background-color: #1890fa;
+        transition: background-color 0.3s;
+      }
+      .main-area {
+        margin-left: 200px;
+        margin-top: 60px; /* To push the main content below the header */
+        padding: 20px;
+        background-color: #f4f4f4;
+        width: 100%;
+        height: 100vh;
+        box-sizing: border-box;
+        overflow-y: auto;
+      }
+      select {
+        padding: 10px;
+        font-size: 16px;
+        margin-right: 10px;
+      }
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #ff5f00;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #ff7f50;
+      }
+      #imgContainer img {
+        max-width: 100%;
+        height: auto;
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <span>🥬Vegehub Admin</span>
+      <div class="admin-icon">🧑‍💻</div>
+    </header>
+    <div class="sidebar">
+      <a href="#" class="active-sidebar">🖊 蔬菜评价</a>
+      <a href="#">＋ 新增管理员</a>
+    </div>
+    <div class="main-area">
+      <h1>Select Visualization Image</h1>
+      <div>
+        <label for="imgSelect">Select Image Type:</label>
+        <select id="imgSelect">
+          <option value="">Select an Image</option>
+          <option value="customer_gender_age_butterfly_chart">
+            Customer Gender Age Butterfly Chart
+          </option>
+          <option value="vegetable_season_chart">Vegetable Season Chart</option>
+          <option value="sell_cost_chart">Sell Cost Chart</option>
+          <option value="supplier_profile_chart">Supplier Profile Chart</option>
+          <option value="vegetable_inventory_chart">
+            Vegetable Inventory Chart
+          </option>
+          <option value="vegetable_region_chart">Vegetable Region Chart</option>
+        </select>
+      </div>
+      <h5></h5>
+      <div>
+        <label for="vegeSelect">Select Vegetable:</label>
+        <select id="vegeSelect" disabled>
+          <option value="">Select a Vegetable</option>
+          <option value="1">西红柿</option>
+          <option value="2">黄瓜</option>
+          <option value="3">茄子</option>
+          <option value="4">土豆</option>
+          <option value="5">胡萝卜</option>
+          <option value="6">白菜</option>
+          <option value="7">青菜</option>
+          <option value="8">芹菜</option>
+          <option value="9">莴苣</option>
+          <option value="10">生菜</option>
+          <option value="11">菠菜</option>
+          <option value="12">苋菜</option>
+          <option value="13">香菜</option>
+          <option value="14">芫荽</option>
+          <option value="15">葱</option>
+          <option value="16">姜</option>
+          <option value="17">蒜</option>
+          <option value="18">辣椒</option>
+          <option value="19">椒</option>
+          <option value="20">豆角</option>
+          <option value="21">豆芽</option>
+          <option value="22">豆苗</option>
+          <option value="23">甜椒</option>
+          <option value="24">苦瓜</option>
+          <option value="25">南瓜</option>
+          <option value="26">冬瓜</option>
+          <option value="27">丝瓜</option>
+          <option value="28">黄花菜</option>
+          <option value="29">莲藕</option>
+          <option value="30">荸荠</option>
+          <option value="31">芋头</option>
+          <option value="32">山药</option>
+          <option value="33">花生</option>
+          <option value="34">蚕豆</option>
+          <option value="35">豌豆</option>
+          <option value="36">扁豆</option>
+        </select>
+      </div>
+      <button id="submitBtn">Get Image</button>
+      <div id="imgContainer"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const imgSelect = document.getElementById('imgSelect');
+            const vegeSelect = document.getElementById('vegeSelect');
+            const submitBtn = document.getElementById('submitBtn');
+            const imgContainer = document.getElementById('imgContainer');
+
+            const imgNeedsVege = ['vegetable_season_chart', 'sell_cost_chart', 'vegetable_region_chart'];
+
+            imgSelect.addEventListener('change', () => {
+                if (imgNeedsVege.includes(imgSelect.value)) {
+                    vegeSelect.disabled = false;
+                } else {
+                    vegeSelect.disabled = true;
+                    vegeSelect.value = '';
+                }
+            });
+
+            submitBtn.addEventListener('click', (event) => {
+                event.preventDefault();
+                const imgName = imgSelect.value;
+                const vegeId = vegeSelect.value;
+                
+                if (!imgName) {
+                    alert('Please select an image type.');
+                    return;
+                }
+
+                let url = `http://localhost:8000/visualization/${imgName}`;
+                if (imgNeedsVege.includes(imgName) && vegeId) {
+                    url += `/${vegeId}`;
+                } else {
+                    url += `/100`;
+                }
+
+                const xhr = new XMLHttpRequest();
+                xhr.open('GET', url, true);
+                xhr.onreadystatechange = function() {
+                    if (xhr.readyState === XMLHttpRequest.DONE) {
+                        if (xhr.status === 200) {
+                            const data = JSON.parse(xhr.responseText);
+                            imgContainer.innerHTML = `<h2>${data.vegetable_name || imgName}</h2><img src="${data.img_path}" alt="${imgName}">`;
+                        } else {
+                            console.error('Error fetching image:', xhr.status, xhr.statusText);
+                        }
+                    }
+                };
+                xhr.send();
+            });
+        });
+        // 阻止表单默认提交行为
+        document.getElementById('submitBtn').addEventListener('click', function(event) {
+            event.preventDefault();
+        });
+        // 阻止界面刷新
+        window.onbeforeunload = function() {
+            return 'Are you sure you want to leave?';
+        };
+    </script>
+  </body>
+</html>
