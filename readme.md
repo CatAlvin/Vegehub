@@ -67,3 +67,9 @@ python runVegehub.py
 from dataVisualization import *
 draw_customer_gender_age_butterfly_chart()
 ```
+
+# Git commands
+1. To clone the repository (now it is public)
+```bash
+git clone https://github.com/CatAlvin/Vegehub.git
+```
