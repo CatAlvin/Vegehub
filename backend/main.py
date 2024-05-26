@@ -11,7 +11,9 @@ app = FastAPI()
 # 允许的源列表
 origins = [
     "http://127.0.0.1:5500",  # 允许来自这个源的请求
-    "http://localhost:5500"
+    "http://localhost:5500",
+    "http://127.0.0.1:5501",
+    "http://localhost:5501"
 ]
 
 # 添加 CORS 中间件
